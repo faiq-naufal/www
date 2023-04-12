@@ -1,0 +1,171 @@
+---
+import DefaultLayout from '@/layouts/default.astro'
+import ButtonLink from '@/features/shared/components/buttons/button-link.astro'
+
+const { PUBLIC_EMAIL_ADDRESS } = process.env
+---
+
+<DefaultLayout meta={{ title: 'Me' }}>
+	<div class="py-12 md:py-24 px-6">
+		<main class="mx-auto max-w-3xl">
+			<article class="flex flex-col gap-y-16">
+				<section class="flex flex-col gap-y-3">
+					<h1 class="text-color-site-stress text-lg font-medium">
+						Hello <span class="wave" role="img" aria-label="waving hand">&#128075;</span> , I'm Faiq.
+					</h1>
+					<p class="text-color-site-subtle">Writing code and smashing the keyboard for living.</p>
+				</section>
+
+				<section class="flex flex-col gap-y-6 text-color-site-normal">
+					<h2 class="uppercase font-medium text-sm text-color-site-emphasis tracking-wide">
+						60 seconds of me
+					</h2>
+
+					<p>
+						I'm a software engineer specialize in the front end side of the internet world.
+						Currently working at
+						<ButtonLink
+							href="https://asumsi.co"
+							className="inline-flex gap-x-0.5 items-center text-color-site-emphasis font-medium underline underline-offset-2 hover:text-color-site-primary"
+							external
+						>
+							<span>Asumsi.co</span>
+							<span class="i-carbon:arrow-up-right text-xs block"></span>
+						</ButtonLink> focusing on building a product called
+						<ButtonLink
+							href="https://inlive.app"
+							className="inline-flex gap-x-0.5 items-center text-color-site-emphasis font-medium underline underline-offset-2 hover:text-color-site-primary"
+							external
+						>
+							<span>inLive</span>
+							<span class="i-carbon:arrow-up-right text-xs block"></span>
+						</ButtonLink> that helps the users and developers building their own affordable live streaming
+						platform.
+					</p>
+
+					<p>
+						I'm in the middle of learning and exploring many aspects of digital product development
+						to solve problems and create modern solutions for users using web technologies. The web
+						technologies are always going rapidly which make them interesting to see and work with.
+					</p>
+
+					<p>
+						I usually write a lot of JavaScript code. Sometimes using TypeScript. Building UI
+						component using React.js or other UI libraries even using the native approach. Which
+						technologies I use actually don't really matter because I consider all technologies are
+						only tools for us software engineers to work with. Instead of wasting time choosing the
+						right technologies, better focus and invest more on solving the problems and creating
+						the solutions.
+					</p>
+
+					<p>
+						If you're wondering where I'm from. I'm from the largest archipelagic country called
+						Indonesia and living in the nice populated area in the Bogor city. Currently working
+						remotely from home.
+					</p>
+				</section>
+
+				<section class="flex flex-col gap-y-6 text-color-site-normal">
+					<h2 class="uppercase font-medium text-sm text-color-site-emphasis tracking-wide">
+						Connect
+					</h2>
+					<ul class="w-full grid grid-cols-1 sm:grid-cols-2 gap-6">
+						<li>
+							<div class="block text-color-site-subtle">LinkedIn &mdash;</div>
+							<ButtonLink
+								href="https://www.linkedin.com/in/faiqnaufal"
+								className="inline-flex items-center gap-x-0.5 text-color-site-normal hover:text-color-site-emphasis"
+								external={true}
+							>
+								<span>faiqnaufal</span>
+								<span class="i-carbon:arrow-up-right text-xs block"></span>
+							</ButtonLink>
+						</li>
+						<li>
+							<div class="block text-color-site-subtle">GitHub &mdash;</div>
+							<ButtonLink
+								href="https://github.com/faiq-naufal"
+								className="inline-flex items-center gap-x-0.5 text-color-site-normal hover:text-color-site-emphasis"
+								external={true}
+							>
+								<span>faiq-naufal</span>
+								<span class="i-carbon:arrow-up-right text-xs block"></span>
+							</ButtonLink>
+						</li>
+						<li>
+							<div class="block text-color-site-subtle">Email &mdash;</div>
+							<ButtonLink
+								href={`mailto:${PUBLIC_EMAIL_ADDRESS}`}
+								className="inline-flex items-center gap-x-0.5 text-color-site-normal hover:text-color-site-emphasis"
+								external={true}
+							>
+								<span>{PUBLIC_EMAIL_ADDRESS}</span>
+								<span class="i-carbon:arrow-up-right text-xs block"></span>
+							</ButtonLink>
+						</li>
+						<li>
+							<div class="block text-color-site-subtle">Product Hunt &mdash;</div>
+							<ButtonLink
+								href="https://www.producthunt.com/@faiqnaufal"
+								className="inline-flex items-center gap-x-0.5 text-color-site-normal hover:text-color-site-emphasis"
+								external={true}
+							>
+								<span>faiqnaufal</span>
+								<span class="i-carbon:arrow-up-right text-xs block"></span>
+							</ButtonLink>
+						</li>
+					</ul>
+				</section>
+
+				<!-- <p>Simplicity and usability are the two things I cannot live without.</p> -->
+			</article>
+		</main>
+	</div>
+</DefaultLayout>
+
+<style>
+	/*
+   * Thanks to https://codepen.io/jakejarvis/pen/pBZWZw
+   */
+	.wave {
+		display: inline-block;
+		animation-duration: 2.5s;
+		animation-iteration-count: infinite;
+		animation-name: wave-animation;
+		transform-origin: 70% 70%;
+	}
+
+	@keyframes wave-animation {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		10% {
+			transform: rotate(14deg);
+		}
+
+		20% {
+			transform: rotate(-8deg);
+		}
+
+		30% {
+			transform: rotate(14deg);
+		}
+
+		40% {
+			transform: rotate(-4deg);
+		}
+
+		50% {
+			transform: rotate(10deg);
+		}
+
+		60% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(0deg);
+		}
+	}
+</style>
