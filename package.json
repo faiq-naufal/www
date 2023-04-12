@@ -1,0 +1,53 @@
+{
+  "name": "@faiq-naufal/www",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro check --watch & astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "format:check": "prettier --check --plugin-search-dir=. .",
+    "lint:check": "eslint . && stylelint **/*.{css,astro}"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^4.5.15"
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "devDependencies": {
+    "@astrojs/sitemap": "^1.2.2",
+    "@astrojs/tailwind": "^3.1.1",
+    "@iconify/json": "^2.2.49",
+    "@total-typescript/ts-reset": "^0.4.2",
+    "@types/eslint": "^8.37.0",
+    "@types/prettier": "^2.7.2",
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
+    "astro": "^2.2.3",
+    "astro-compress": "^1.1.35",
+    "astro-critters": "^1.1.31",
+    "astro-eslint-parser": "^0.13.3",
+    "dotenv": "^16.0.3",
+    "eslint": "^8.38.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-typescript": "^3.5.5",
+    "eslint-plugin-astro": "^0.26.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "postcss": "^8.4.21",
+    "postcss-html": "^1.5.0",
+    "prettier": "^2.8.7",
+    "prettier-plugin-astro": "^0.8.0",
+    "stylelint": "^15.4.0",
+    "stylelint-config-idiomatic-order": "^9.0.0",
+    "stylelint-config-standard": "^32.0.0",
+    "tailwindcss": "^3.3.1",
+    "typescript": "^5.0.4",
+    "unocss": "^0.51.4"
+  }
+}
