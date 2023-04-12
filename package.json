@@ -2,7 +2,6 @@
   "name": "@faiq-naufal/www",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "astro check --watch & astro dev",
     "start": "astro dev",
