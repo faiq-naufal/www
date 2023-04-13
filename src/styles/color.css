@@ -1,0 +1,19 @@
+:root {
+	--background-site-body: 43deg 100% 98%;
+	--color-site-primary: 180deg 60% 30%;
+	--color-site-subtle: 180deg 6% 44%;
+	--color-site-normal: 180deg 10% 26%;
+	--color-site-emphasis: 180deg 10% 15%;
+	--color-site-stress: 180deg 12% 6%;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background-site-body: 160deg 11% 6%;
+		--color-site-primary: 160deg 50% 50%;
+		--color-site-subtle: 160deg 3% 48%;
+		--color-site-normal: 160deg 1% 74%;
+		--color-site-emphasis: 160deg 0.5% 88%;
+		--color-site-stress: 160deg 0.25% 97%;
+	}
+}
