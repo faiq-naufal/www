@@ -1,0 +1,44 @@
+---
+import { metadata } from '@config'
+
+export interface Props {
+	meta: {
+		title?: string
+		description?: string
+	}
+}
+
+const {
+	meta: { title, description = metadata.description },
+} = Astro.props as Props
+
+const titleSeparator = '|'
+const siteTitle = title ? `${title} ${titleSeparator} ${metadata.author}` : metadata.author
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- General Meta Tags -->
+<title>{siteTitle}</title>
+<meta name="title" content={siteTitle} />
+<meta name="description" content={description} />
+<meta name="author" content={metadata.author} />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="canonical" href={canonicalURL} />
+<!-- Favicons -->
+<link rel="icon" href="/favicon/favicon.ico" sizes="any" />
+<link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="/manifest.webmanifest" />
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content={siteTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalURL} />
+<!-- Twitter -->
+<meta property="twitter:card" content="summary" />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={siteTitle} />
+<meta property="twitter:description" content={description} />
