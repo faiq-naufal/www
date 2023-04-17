@@ -3,9 +3,9 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
-			"@/features/*": ["src/features/*"],
-			"@/layouts/*": ["src/layouts/*"],
-			"@/styles/*": ["src/styles/*"]
+			"@config": ["src/config.ts"],
+			"@components/*": ["src/components/*"],
+			"@styles/*": ["src/styles/*"]
 		}
 	},
 	"exclude": ["node_modules", "**/node_modules/*", ".vscode", "dist"]
