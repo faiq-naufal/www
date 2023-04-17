@@ -1,0 +1,32 @@
+---
+import '@fontsource/inter/variable.css'
+import '@styles/reset.css'
+import '@styles/tailwind.css'
+import '@styles/color.css'
+import '@styles/font.css'
+import '@styles/theme.css'
+import '@total-typescript/ts-reset'
+import { metadata } from '@config'
+import HeadScript from '@components/layouts/head/script.astro'
+import HeadMeta from '@components/layouts/head/meta.astro'
+
+export interface Props {
+	meta: {
+		title?: string
+		description?: string
+	}
+}
+
+const props = Astro.props as Props
+---
+
+<!DOCTYPE html>
+<html lang={metadata.lang} dir={metadata.dir}>
+	<head>
+		<HeadMeta meta={props.meta} />
+		<HeadScript />
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
