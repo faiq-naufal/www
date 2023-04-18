@@ -8,6 +8,7 @@ export default {
   theme: {
     colors: {
       'background-site-body': 'hsl(var(--background-site-body))',
+      'background-site-rectangle': 'hsl(var(--background-site-rectangle))',
       'color-site-primary': 'hsl(var(--color-site-primary))',
       'color-site-subtle': 'hsl(var(--color-site-subtle))',
       'color-site-normal': 'hsl(var(--color-site-normal))',
