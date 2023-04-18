@@ -8,9 +8,10 @@ export interface Props {
 	}
 }
 
-const {
-	meta: { title, description = metadata.description },
-} = Astro.props as Props
+const props = Astro.props as Props
+const meta = props.meta || {}
+const title = meta.title || ''
+const description = meta.description || metadata.description
 
 const titleSeparator = '|'
 const siteTitle = title ? `${title} ${titleSeparator} ${metadata.author}` : metadata.author
