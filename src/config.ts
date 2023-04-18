@@ -2,19 +2,23 @@ const { PUBLIC_CANONICAL_ORIGIN, PUBLIC_EMAIL_ADDRESS } = process.env
 
 export const social = {
 	email: {
-		name: PUBLIC_EMAIL_ADDRESS,
+		label: 'Email',
+		username: PUBLIC_EMAIL_ADDRESS,
 		url: PUBLIC_EMAIL_ADDRESS,
 	},
 	github: {
-		name: 'faiq-naufal',
+		label: 'GitHub',
+		username: 'faiq-naufal',
 		url: 'https://github.com/faiq-naufal',
 	},
 	linkedin: {
-		name: 'faiqnaufal',
+		label: 'LinkedIn',
+		username: 'faiqnaufal',
 		url: 'https://www.linkedin.com/in/faiqnaufal',
 	},
 	producthunt: {
-		name: 'faiqnaufal',
+		label: 'Product Hunt',
+		username: 'faiqnaufal',
 		url: 'https://www.producthunt.com/@faiqnaufal',
 	},
 }
