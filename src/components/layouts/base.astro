@@ -11,19 +11,20 @@ import HeadScript from '@components/layouts/head/script.astro'
 import HeadMeta from '@components/layouts/head/meta.astro'
 
 export interface Props {
-	meta: {
+	meta?: {
 		title?: string
 		description?: string
 	}
 }
 
 const props = Astro.props as Props
+const meta = props.meta || {}
 ---
 
 <!DOCTYPE html>
 <html lang={metadata.lang} dir={metadata.dir}>
 	<head>
-		<HeadMeta meta={props.meta} />
+		<HeadMeta meta={meta} />
 		<HeadScript />
 	</head>
 	<body>
