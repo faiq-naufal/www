@@ -1,11 +1,10 @@
 ---
-import DefaultLayout from '@/layouts/default.astro'
-import ButtonLink from '@/features/shared/components/buttons/button-link.astro'
-
-const { PUBLIC_EMAIL_ADDRESS } = process.env
+import DefaultLayout from '@components/layouts/default.astro'
+import ButtonLink from '@components/shared/button/link.astro'
+import { social } from '@config'
 ---
 
-<DefaultLayout meta={{ title: 'Me' }}>
+<DefaultLayout>
 	<div class="py-12 md:py-24 px-6">
 		<main class="mx-auto max-w-3xl">
 			<article class="flex flex-col gap-y-16">
@@ -69,55 +68,87 @@ const { PUBLIC_EMAIL_ADDRESS } = process.env
 					<h2 class="uppercase font-medium text-sm text-color-site-emphasis tracking-wide">
 						Connect
 					</h2>
-					<ul class="w-full grid grid-cols-1 sm:grid-cols-2 gap-6">
+					<ul class="w-full grid grid-cols-1 sm:grid-cols-2 -ml-4 gap-1 -mt-4">
 						<li>
-							<div class="block text-color-site-subtle">LinkedIn &mdash;</div>
 							<ButtonLink
-								href="https://www.linkedin.com/in/faiqnaufal"
-								className="inline-flex items-center gap-x-0.5 text-color-site-normal hover:text-color-site-emphasis"
+								href={social.linkedin.url}
+								className="block p-4 group hover:bg-background-site-rectangle rounded-md transition"
 								external={true}
 							>
-								<span>faiqnaufal</span>
-								<span class="i-carbon:arrow-up-right text-xs block"></span>
+								<div class="flex items-center justify-between">
+									<div>
+										<div class="text-color-site-subtle text-sm">
+											{social.linkedin.label} &mdash;
+										</div>
+										<div class="text-color-site-normal">{social.linkedin.username}</div>
+									</div>
+									<div
+										class="flex items-center opacity-0 group-hover:opacity-100 i-carbon:arrow-up-right text-base transition"
+									>
+									</div>
+								</div>
 							</ButtonLink>
 						</li>
 						<li>
-							<div class="block text-color-site-subtle">GitHub &mdash;</div>
 							<ButtonLink
-								href="https://github.com/faiq-naufal"
-								className="inline-flex items-center gap-x-0.5 text-color-site-normal hover:text-color-site-emphasis"
+								href={social.github.url}
+								className="block p-4 group hover:bg-background-site-rectangle rounded-md transition"
 								external={true}
 							>
-								<span>faiq-naufal</span>
-								<span class="i-carbon:arrow-up-right text-xs block"></span>
+								<div class="flex items-center justify-between">
+									<div>
+										<div class="text-color-site-subtle text-sm">{social.github.label} &mdash;</div>
+										<div class="text-color-site-normal">{social.github.username}</div>
+									</div>
+									<div
+										class="flex items-center opacity-0 group-hover:opacity-100 i-carbon:arrow-up-right text-base transition"
+									>
+									</div>
+								</div>
 							</ButtonLink>
 						</li>
 						<li>
-							<div class="block text-color-site-subtle">Email &mdash;</div>
 							<ButtonLink
-								href={`mailto:${PUBLIC_EMAIL_ADDRESS}`}
-								className="inline-flex items-center gap-x-0.5 text-color-site-normal hover:text-color-site-emphasis"
+								href={`mailto:${social.email.url}`}
+								className="block p-4 group hover:bg-background-site-rectangle rounded-md transition"
 								external={true}
 							>
-								<span>{PUBLIC_EMAIL_ADDRESS}</span>
-								<span class="i-carbon:arrow-up-right text-xs block"></span>
+								<div class="flex items-center justify-between">
+									<div>
+										<div class="text-color-site-subtle text-sm">{social.email.label} &mdash;</div>
+										<div class="text-color-site-normal">
+											{social.email.username}
+										</div>
+									</div>
+									<div
+										class="flex items-center opacity-0 group-hover:opacity-100 i-carbon:arrow-up-right text-base transition"
+									>
+									</div>
+								</div>
 							</ButtonLink>
 						</li>
 						<li>
-							<div class="block text-color-site-subtle">Product Hunt &mdash;</div>
 							<ButtonLink
-								href="https://www.producthunt.com/@faiqnaufal"
-								className="inline-flex items-center gap-x-0.5 text-color-site-normal hover:text-color-site-emphasis"
+								href={social.producthunt.url}
+								className="block p-4 group hover:bg-background-site-rectangle rounded-md transition"
 								external={true}
 							>
-								<span>faiqnaufal</span>
-								<span class="i-carbon:arrow-up-right text-xs block"></span>
+								<div class="flex items-center justify-between">
+									<div>
+										<div class="text-color-site-subtle text-sm">
+											{social.producthunt.label} &mdash;
+										</div>
+										<div class="text-color-site-normal">{social.producthunt.username}</div>
+									</div>
+									<div
+										class="flex items-center opacity-0 group-hover:opacity-100 i-carbon:arrow-up-right text-base transition"
+									>
+									</div>
+								</div>
 							</ButtonLink>
 						</li>
 					</ul>
 				</section>
-
-				<!-- <p>Simplicity and usability are the two things I cannot live without.</p> -->
 			</article>
 		</main>
 	</div>
