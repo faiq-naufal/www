@@ -11,7 +11,7 @@
 @media (prefers-color-scheme: dark) {
 	:root {
 		--background-site-body: 40deg 0% 12%;
-		--background-site-rectangle: 40deg 0% 14.5%;
+		--background-site-rectangle: 40deg 8% 14.5%;
 		--color-site-primary: 40deg, 100%, 66%;
 		--color-site-subtle: 40deg 4% 52%;
 		--color-site-normal: 40deg 4% 75%;
