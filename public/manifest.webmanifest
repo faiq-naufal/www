@@ -5,7 +5,7 @@
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "hsl(var(--background-site-body))",
+  "background_color": "hsl(10deg 100% 100%)",
   "theme_color": "transparent",
   "scope": "/",
   "icons": [
