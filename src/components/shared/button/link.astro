@@ -1,0 +1,48 @@
+---
+export interface Props {
+	href: string
+	className?: string
+	title?: string
+	ariaLabel?: string
+	ariaCurrent?: 'page' | 'step' | 'location' | 'date' | 'time' | boolean
+	disabled?: boolean
+	external?: boolean
+	noText?: boolean
+}
+
+const {
+	href,
+	className,
+	title,
+	ariaLabel = '',
+	ariaCurrent = false,
+	disabled = false,
+	external = false,
+	noText = false,
+} = Astro.props
+---
+
+<a
+	href={href}
+	class={`${className ? className : ''} ${noText ? 'no-text' : ''} ${disabled ? 'disabled' : ''}`}
+	tabindex={disabled ? '-1' : '0'}
+	aria-label={ariaLabel}
+	title={title}
+	aria-disabled={disabled}
+	aria-current={ariaCurrent}
+	target={external ? '_blank' : '_self'}
+	rel={external ? 'noopener noreferrer' : null}
+>
+	<slot />
+</a>
+
+<style>
+	.disabled {
+		pointer-events: none;
+	}
+
+	.no-text {
+		font-size: 0;
+		line-height: 0;
+	}
+</style>

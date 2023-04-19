@@ -1,0 +1,206 @@
+---
+import DefaultLayout from '@components/layouts/default.astro'
+import ButtonLink from '@components/shared/button/link.astro'
+import { social } from '@config'
+---
+
+<DefaultLayout>
+	<div class="py-12 md:py-24 px-6">
+		<main class="mx-auto max-w-3xl">
+			<article class="flex flex-col gap-y-16">
+				<div class="flex flex-col gap-y-3">
+					<h1 class="text-color-site-stress text-lg font-medium">
+						Hello <span class="wave" role="img" aria-label="waving hand">&#128075;</span> , I'm Faiq.
+					</h1>
+					<p class="text-color-site-subtle">Writing code and smashing the keyboard for living.</p>
+				</div>
+
+				<section class="flex flex-col gap-y-6 text-color-site-normal">
+					<h2 class="uppercase font-medium text-sm text-color-site-emphasis tracking-wide">
+						60 seconds of me
+					</h2>
+
+					<p>
+						I'm a software engineer specialize in the front end side of the internet world.
+						Currently working at
+						<ButtonLink
+							href="https://asumsi.co"
+							className="inline-block text-color-site-emphasis font-medium hover:underline underline-offset-4 hover:text-color-site-primary transition"
+							external
+						>
+							Asumsi.co
+						</ButtonLink>&nbsp;focusing on building a product called
+						<ButtonLink
+							href="https://inlive.app"
+							className="inline-block text-color-site-emphasis font-medium hover:underline underline-offset-4 hover:text-color-site-primary transition"
+							external
+						>
+							inLive
+						</ButtonLink>&nbsp;that helps the users and developers building their own affordable
+						live streaming platform.
+					</p>
+
+					<p>
+						I'm in the middle of learning and exploring many aspects of digital product development
+						to solve problems and create modern solutions for users using web technologies. The web
+						technologies are always going rapidly which make them interesting to see and work with.
+					</p>
+
+					<p>
+						I usually write a lot of JavaScript code. Sometimes using TypeScript. Building UI
+						component using React.js or other UI libraries even using the native approach. Which
+						technologies I use actually don't really matter because I consider all technologies are
+						only tools for us software engineers to work with. Instead of wasting time choosing the
+						right technologies, better focus and invest more on solving the problems and creating
+						the solutions.
+					</p>
+
+					<p>
+						If you're wondering where I'm from. I'm from the largest archipelagic country called
+						Indonesia and living in the nice populated area in the Bogor city. Currently working
+						remotely from home.
+					</p>
+				</section>
+
+				<section class="flex flex-col gap-y-6 text-color-site-normal">
+					<h2 class="uppercase font-medium text-sm text-color-site-emphasis tracking-wide">
+						Connect
+					</h2>
+					<ul class="w-full grid grid-cols-1 sm:grid-cols-2 -ml-4 gap-1 -mt-4">
+						<li>
+							<ButtonLink
+								href={social.linkedin.url}
+								className="block p-4 group hover:bg-background-site-rectangle rounded-md transition"
+								external={true}
+							>
+								<div class="flex items-center justify-between">
+									<div>
+										<div class="text-color-site-subtle text-sm">
+											{social.linkedin.label} &mdash;
+										</div>
+										<div class="text-color-site-normal group-hover:text-color-site-emphasis">
+											{social.linkedin.username}
+										</div>
+									</div>
+									<div
+										class="flex items-center opacity-0 group-hover:opacity-100 i-carbon:arrow-up-right text-base transition text-color-site-emphasis"
+									>
+									</div>
+								</div>
+							</ButtonLink>
+						</li>
+						<li>
+							<ButtonLink
+								href={social.github.url}
+								className="block p-4 group hover:bg-background-site-rectangle rounded-md transition"
+								external={true}
+							>
+								<div class="flex items-center justify-between">
+									<div>
+										<div class="text-color-site-subtle text-sm">{social.github.label} &mdash;</div>
+										<div class="text-color-site-normal group-hover:text-color-site-emphasis">
+											{social.github.username}
+										</div>
+									</div>
+									<div
+										class="flex items-center opacity-0 group-hover:opacity-100 i-carbon:arrow-up-right text-base transition text-color-site-emphasis"
+									>
+									</div>
+								</div>
+							</ButtonLink>
+						</li>
+						<li>
+							<ButtonLink
+								href={`mailto:${social.email.url}`}
+								className="block p-4 group hover:bg-background-site-rectangle rounded-md transition"
+								external={true}
+							>
+								<div class="flex items-center justify-between">
+									<div>
+										<div class="text-color-site-subtle text-sm">{social.email.label} &mdash;</div>
+										<div class="text-color-site-normal group-hover:text-color-site-emphasis">
+											{social.email.username}
+										</div>
+									</div>
+									<div
+										class="flex items-center opacity-0 group-hover:opacity-100 i-carbon:arrow-up-right text-base transition text-color-site-emphasis"
+									>
+									</div>
+								</div>
+							</ButtonLink>
+						</li>
+						<li>
+							<ButtonLink
+								href={social.producthunt.url}
+								className="block p-4 group hover:bg-background-site-rectangle rounded-md transition"
+								external={true}
+							>
+								<div class="flex items-center justify-between">
+									<div>
+										<div class="text-color-site-subtle text-sm">
+											{social.producthunt.label} &mdash;
+										</div>
+										<div class="text-color-site-normal group-hover:text-color-site-emphasis">
+											{social.producthunt.username}
+										</div>
+									</div>
+									<div
+										class="flex items-center opacity-0 group-hover:opacity-100 i-carbon:arrow-up-right text-base transition text-color-site-emphasis"
+									>
+									</div>
+								</div>
+							</ButtonLink>
+						</li>
+					</ul>
+				</section>
+			</article>
+		</main>
+	</div>
+</DefaultLayout>
+
+<style>
+	/*
+   * Thanks to https://codepen.io/jakejarvis/pen/pBZWZw
+   */
+	.wave {
+		display: inline-block;
+		animation-duration: 2.5s;
+		animation-iteration-count: infinite;
+		animation-name: wave-animation;
+		transform-origin: 70% 70%;
+	}
+
+	@keyframes wave-animation {
+		0% {
+			transform: rotate(0deg);
+		}
+
+		10% {
+			transform: rotate(14deg);
+		}
+
+		20% {
+			transform: rotate(-8deg);
+		}
+
+		30% {
+			transform: rotate(14deg);
+		}
+
+		40% {
+			transform: rotate(-4deg);
+		}
+
+		50% {
+			transform: rotate(10deg);
+		}
+
+		60% {
+			transform: rotate(0deg);
+		}
+
+		100% {
+			transform: rotate(0deg);
+		}
+	}
+</style>

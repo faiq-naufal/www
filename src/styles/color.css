@@ -1,0 +1,21 @@
+:root {
+	--background-site-body: 10deg 100% 100%;
+	--background-site-rectangle: 40deg 8% 97%;
+	--color-site-primary: 10deg 90% 46%;
+	--color-site-subtle: 10deg 8% 47%;
+	--color-site-normal: 10deg 16% 30%;
+	--color-site-emphasis: 10deg 16% 16%;
+	--color-site-stress: 10deg 16% 5%;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background-site-body: 40deg 0% 12%;
+		--background-site-rectangle: 40deg 8% 14.5%;
+		--color-site-primary: 40deg, 100%, 66%;
+		--color-site-subtle: 40deg 4% 52%;
+		--color-site-normal: 40deg 4% 75%;
+		--color-site-emphasis: 40deg 6% 92%;
+		--color-site-stress: 40deg 32% 99%;
+	}
+}
