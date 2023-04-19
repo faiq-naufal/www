@@ -45,6 +45,5 @@ module.exports = {
 	],
 	rules: {
 		'@typescript-eslint/no-var-requires': 'warn',
-		'@typescript-eslint/triple-slash-reference': null,
 	},
 }
