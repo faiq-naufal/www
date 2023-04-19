@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://faiqnaufal.com/sitemap.xml
+Sitemap: https://faiqnaufal.com/sitemap-index.xml

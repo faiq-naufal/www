@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 import tailwind from '@astrojs/tailwind'
 import compress from 'astro-compress'
 import critters from 'astro-critters'
+import sitemap from '@astrojs/sitemap'
 
 dotenv.config()
 
@@ -19,6 +20,7 @@ export default defineConfig({
 		tailwind({
 			config: { applyBaseStyles: false },
 		}),
+		sitemap(),
 		critters(),
 		compress(),
 	],
