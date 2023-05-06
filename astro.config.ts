@@ -6,6 +6,7 @@ import tailwind from '@astrojs/tailwind'
 import compress from 'astro-compress'
 import critters from 'astro-critters'
 import sitemap from '@astrojs/sitemap'
+import partytown from '@astrojs/partytown'
 
 dotenv.config()
 
@@ -14,6 +15,7 @@ const { PUBLIC_CANONICAL_ORIGIN } = process.env
 export default defineConfig({
 	site: PUBLIC_CANONICAL_ORIGIN,
 	integrations: [
+		partytown({}),
 		UnoCSS({
 			presets: [presetIcons()],
 		}),
