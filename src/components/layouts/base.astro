@@ -9,6 +9,7 @@ import '@total-typescript/ts-reset'
 import { metadata } from '@config'
 import HeadScript from '@components/layouts/head/script.astro'
 import HeadMeta from '@components/layouts/head/meta.astro'
+import HeadAnalytics from '@components/layouts/head/analytics.astro'
 
 export interface Props {
 	meta?: {
@@ -26,6 +27,7 @@ const meta = props.meta || {}
 	<head>
 		<HeadMeta meta={meta} />
 		<HeadScript />
+		<HeadAnalytics />
 	</head>
 	<body>
 		<slot />
