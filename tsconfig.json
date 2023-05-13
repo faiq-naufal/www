@@ -5,6 +5,7 @@
 		"paths": {
 			"@config": ["src/config.ts"],
 			"@components/*": ["src/components/*"],
+			"@modules/*": ["src/modules/*"],
 			"@styles/*": ["src/styles/*"]
 		}
 	},
