@@ -1,0 +1,39 @@
+---
+import ButtonLink from '@components/shared/button/link.astro'
+---
+
+<footer
+	class="mx-auto max-w-2xl mt-16 md:mt-20 flex flex-row flex-wrap justify-between gap-x-20 gap-y-6 text-sm text-color-site-subtle"
+>
+	<nav>
+		<ul class="flex flex-wrap flex-row gap-6">
+			<li>
+				<ButtonLink
+					href="/"
+					className="hover:underline hover:underline-offset-4 hover:text-color-site-stress transition"
+				>
+					<span slot="children">Home</span>
+				</ButtonLink>
+			</li>
+			<li>
+				<ButtonLink
+					href="/about"
+					className="hover:underline hover:underline-offset-4 hover:text-color-site-stress transition"
+				>
+					<span slot="children">About Me</span>
+				</ButtonLink>
+			</li>
+			<li>
+				<ButtonLink
+					href="/sitemap-index.xml"
+					className="hover:underline hover:underline-offset-4 hover:text-color-site-stress transition"
+				>
+					<span slot="children">Sitemap</span>
+				</ButtonLink>
+			</li>
+		</ul>
+	</nav>
+	<p>
+		&copy; {new Date().getFullYear()} • Faiq Naufal
+	</p>
+</footer>
