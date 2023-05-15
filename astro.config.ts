@@ -8,6 +8,7 @@ import critters from 'astro-critters'
 import sitemap from '@astrojs/sitemap'
 import partytown from '@astrojs/partytown'
 import mdx from '@astrojs/mdx'
+import { remarkReadingTime } from './src/modules/remark/remark-reading-time-plugin'
 
 dotenv.config()
 
@@ -23,7 +24,9 @@ export default defineConfig({
 		tailwind({
 			config: { applyBaseStyles: false },
 		}),
-		mdx(),
+		mdx({
+			remarkPlugins: [remarkReadingTime],
+		}),
 		sitemap(),
 		compress(),
 		critters(),
