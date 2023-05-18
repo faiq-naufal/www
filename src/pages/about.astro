@@ -9,7 +9,8 @@ import Footer from '@components/layouts/footer/footer.astro'
 			<article class="flex flex-col gap-y-12">
 				<section class="flex items-center gap-4 md:gap-5 text-color-site-stress">
 					<div class="flex items-center">
-						<span class="i-solar:sticker-smile-square-bold block text-4xl"></span>
+						<span class="i-solar:sticker-smile-square-outline text-4xl light-only"></span>
+						<span class="i-solar:sticker-smile-square-bold text-4xl dark-only"></span>
 					</div>
 					<div>
 						<h1 class="text-base md:text-lg">Hello again, I'm Faiq</h1>
@@ -59,3 +60,23 @@ import Footer from '@components/layouts/footer/footer.astro'
 		<Footer />
 	</div>
 </DefaultLayout>
+
+<style>
+	.light-only {
+		display: block;
+	}
+
+	.dark-only {
+		display: none;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		.light-only {
+			display: none;
+		}
+
+		.dark-only {
+			display: block;
+		}
+	}
+</style>
