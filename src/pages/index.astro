@@ -1,89 +1,165 @@
 ---
+import { getCollection } from 'astro:content'
 import DefaultLayout from '@components/layouts/default.astro'
+import Footer from '@components/layouts/footer/footer.astro'
 import ButtonLink from '@components/shared/button/link.astro'
+import Logo from '@components/shared/logo/logo.astro'
 import { social } from '@config'
+
+const writingCollection = await getCollection('writing', ({ data }) => !data.draft)
+
+const sortedWriting = writingCollection.sort((contentA, contentB) => {
+	const oneSecond = 1000
+	return (
+		Math.floor(new Date(contentB.data.date).getTime() / oneSecond) -
+		Math.floor(new Date(contentA.data.date).getTime() / oneSecond)
+	)
+})
+
+const numberOfLatestWriting = 5
+
+const latestWriting = sortedWriting.slice(0, numberOfLatestWriting)
 ---
 
 <DefaultLayout>
 	<div class="py-12 md:py-24 px-6">
-		<main class="mx-auto max-w-3xl">
+		<main class="mx-auto max-w-2xl">
 			<article class="flex flex-col gap-y-16">
-				<div class="flex flex-col gap-y-3">
-					<h1 class="text-color-site-stress text-lg font-medium">
-						Hello <span class="wave" role="img" aria-label="waving hand">&#128075;</span> , I'm Faiq.
-					</h1>
-					<p class="text-color-site-subtle">Writing code and smashing the keyboard for living.</p>
-				</div>
-
-				<section class="flex flex-col gap-y-6 text-color-site-normal">
-					<h2 class="uppercase font-medium text-sm text-color-site-emphasis tracking-wide">
-						60 seconds of me
-					</h2>
-
-					<p>
-						I'm a software engineer specialize in the front end side of the internet world.
-						Currently working at
-						<ButtonLink
-							href="https://asumsi.co"
-							className="inline-block text-color-site-emphasis font-medium hover:underline underline-offset-4 hover:text-color-site-primary transition"
-							external
-						>
-							Asumsi.co
-						</ButtonLink>&nbsp;focusing on building a product called
-						<ButtonLink
-							href="https://inlive.app"
-							className="inline-block text-color-site-emphasis font-medium hover:underline underline-offset-4 hover:text-color-site-primary transition"
-							external
-						>
-							inLive
-						</ButtonLink>&nbsp;that helps the users and developers building their own affordable
-						live streaming platform.
-					</p>
-
-					<p>
-						I'm in the middle of learning and exploring many aspects of digital product development
-						to solve problems and create modern solutions for users using web technologies. The web
-						technologies are always going rapidly which make them interesting to see and work with.
-					</p>
-
-					<p>
-						I usually write a lot of JavaScript code. Sometimes using TypeScript. Building UI
-						component using React.js or other UI libraries even using the native approach. Which
-						technologies I use actually don't really matter because I consider all technologies are
-						only tools for us software engineers to work with. Instead of wasting time choosing the
-						right technologies, better focus and invest more on solving the problems and creating
-						the solutions.
-					</p>
-
-					<p>
-						If you're wondering where I'm from. I'm from the largest archipelagic country called
-						Indonesia and living in the nice populated area in the Bogor city. Currently working
-						remotely from home.
-					</p>
+				<section>
+					<div class="flex gap-5">
+						<div class="flex items-center text-color-site-stress">
+							<Logo />
+						</div>
+						<div>
+							<h1 class="text-color-site-stress">Faiq Naufal</h1>
+							<p class="text-color-site-subtle text-sm md:text-base">Software Engineer Front End</p>
+						</div>
+					</div>
 				</section>
 
-				<section class="flex flex-col gap-y-6 text-color-site-normal">
-					<h2 class="uppercase font-medium text-sm text-color-site-emphasis tracking-wide">
+				<section class="flex flex-col gap-y-4 leading-6 md:leading-7 text-sm md:text-base">
+					<h2
+						class="uppercase font-medium text-xs md:text-sm text-color-site-stress tracking-wider"
+					>
+						Me in 10 seconds
+					</h2>
+					<p>
+						I'm a software engineer driven by the curiosity of learning the art of programming and
+						design. Currently, I'm working at <ButtonLink
+							href="https://asumsi.co"
+							className="inline-block text-color-site-emphasis hover:text-color-site-stress underline hover:no-underline underline-offset-4 transition"
+							external
+						>
+							<span slot="children">Asumsi.co</span>
+						</ButtonLink> focusing on building a product called <ButtonLink
+							href="https://inlive.app"
+							className="inline-block text-color-site-emphasis hover:text-color-site-stress underline hover:no-underline underline-offset-4 transition"
+							external
+						>
+							<span slot="children">inLive</span>
+						</ButtonLink> to help users and developers on building their own affordable live streaming
+						platform.
+					</p>
+					<p>
+						I really passionate and obsessed in building stuff on the internet. I also love solving
+						problem and creating meaningful digital experience using web technologies.
+					</p>
+					<div>
+						<ButtonLink
+							href="/about"
+							className="inline-block py-1.5 md:py-2 px-4 text-center text-color-site-normal hover:text-color-site-stress font-medium tracking-wide bg-background-site-rectangle rounded-lg text-sm border-[0.25px] border-background-site-rectangle hover:border-color-site-subtle transition-all"
+						>
+							<div slot="children" class="flex items-center gap-1">
+								<span>Tell me more</span>
+								<span class="i-solar:alt-arrow-right-line-duotone block text-base"></span>
+							</div>
+						</ButtonLink>
+					</div>
+				</section>
+
+				{
+					latestWriting.length && (
+						<section class="flex flex-col gap-y-4 text-color-site-normal">
+							<h2 class="uppercase font-medium text-xs md:text-sm text-color-site-stress tracking-wider">
+								Writing
+							</h2>
+							<ul class="flex flex-col group/inactive -mt-2.5">
+								{latestWriting.map(async (writing) => {
+									const { data, slug, render } = writing
+									const { remarkPluginFrontmatter } = await render()
+									const { minutesRead } = remarkPluginFrontmatter || {}
+									const { date, title } = data
+
+									const [minute, timeUnit] = minutesRead?.text ? minutesRead.text.split(' ') : []
+
+									const DDMMYYYY = date.toLocaleDateString('en-GB', {
+										timeZone: 'Asia/Jakarta',
+									})
+
+									const humanDate = date.toLocaleDateString('en-US', {
+										timeZone: 'Asia/Jakarta',
+										month: 'short',
+										day: '2-digit',
+									})
+
+									return (
+										<li class="group/active">
+											<a
+												href={`/blog/${slug}`}
+												class="py-2.5 flex flex-col md:flex-row md:justify-between gap-0.5 md:gap-3"
+											>
+												<div class="flex flex-row justify-between items-center gap-3 md:gap-10">
+													<p class="md:order-2 text-sm md:text-base flex-1 text-color-site-normal group-hover/inactive:opacity-40 group-hover/active:!opacity-100 group-hover/active:text-color-site-stress transition-opacity duration-150">
+														{title}
+													</p>
+													<time
+														datetime={DDMMYYYY}
+														class="md:order-1 text-xs md:text-sm leading-5 md:leading-6 w-12 group-hover/inactive:opacity-40 group-hover/active:!opacity-100 group-hover/active:text-color-site-stress transition-opacity duration-150"
+													>
+														{humanDate}
+													</time>
+												</div>
+												<div class="text-xs md:text-sm leading-5 md:leading-6 group-hover/inactive:opacity-40 group-hover/active:!opacity-100 group-hover/active:text-color-site-stress transition-opacity duration-150">
+													<time datetime={`PT${minute}${timeUnit[0].toUpperCase()}`}>
+														{minute} {timeUnit}
+													</time>
+													<span class="md:hidden">read</span>
+												</div>
+											</a>
+										</li>
+									)
+								})}
+							</ul>
+						</section>
+					)
+				}
+
+				<section class="flex flex-col gap-y-4 text-color-site-normal">
+					<h2
+						class="uppercase font-medium text-xs md:text-sm text-color-site-stress tracking-wider"
+					>
 						Connect
 					</h2>
-					<ul class="w-full grid grid-cols-1 sm:grid-cols-2 -ml-4 gap-1 -mt-4">
+					<ul class="grid grid-cols-1 sm:grid-cols-2 -ml-3 md:-ml-4 md:gap-1 -mt-3 md:-mt-4">
 						<li>
 							<ButtonLink
 								href={social.linkedin.url}
-								className="block p-4 group hover:bg-background-site-rectangle rounded-md transition"
+								className="block p-3 md:p-4 group hover:bg-background-site-rectangle rounded-md transition"
 								external={true}
 							>
-								<div class="flex items-center justify-between">
+								<div slot="children" class="flex items-center justify-between">
 									<div>
-										<div class="text-color-site-subtle text-sm">
+										<div class="text-color-site-subtle text-xs">
 											{social.linkedin.label} &mdash;
 										</div>
-										<div class="text-color-site-normal group-hover:text-color-site-emphasis">
+										<div
+											class="text-sm md:text-base text-color-site-normal group-hover:text-color-site-stress"
+										>
 											{social.linkedin.username}
 										</div>
 									</div>
 									<div
-										class="flex items-center opacity-0 group-hover:opacity-100 i-carbon:arrow-up-right text-base transition text-color-site-emphasis"
+										class="flex items-center opacity-0 group-hover:opacity-100 i-carbon:arrow-up-right text-base transition text-color-site-stress"
 									>
 									</div>
 								</div>
@@ -92,18 +168,20 @@ import { social } from '@config'
 						<li>
 							<ButtonLink
 								href={social.github.url}
-								className="block p-4 group hover:bg-background-site-rectangle rounded-md transition"
+								className="block p-3 md:p-4 group hover:bg-background-site-rectangle rounded-md transition"
 								external={true}
 							>
-								<div class="flex items-center justify-between">
+								<div slot="children" class="flex items-center justify-between">
 									<div>
-										<div class="text-color-site-subtle text-sm">{social.github.label} &mdash;</div>
-										<div class="text-color-site-normal group-hover:text-color-site-emphasis">
+										<div class="text-color-site-subtle text-xs">{social.github.label} &mdash;</div>
+										<div
+											class="text-sm md:text-base text-color-site-normal group-hover:text-color-site-stress"
+										>
 											{social.github.username}
 										</div>
 									</div>
 									<div
-										class="flex items-center opacity-0 group-hover:opacity-100 i-carbon:arrow-up-right text-base transition text-color-site-emphasis"
+										class="flex items-center opacity-0 group-hover:opacity-100 i-carbon:arrow-up-right text-base transition text-color-site-stress"
 									>
 									</div>
 								</div>
@@ -112,18 +190,20 @@ import { social } from '@config'
 						<li>
 							<ButtonLink
 								href={`mailto:${social.email.url}`}
-								className="block p-4 group hover:bg-background-site-rectangle rounded-md transition"
+								className="block p-3 md:p-4 group hover:bg-background-site-rectangle rounded-md transition"
 								external={true}
 							>
-								<div class="flex items-center justify-between">
+								<div slot="children" class="flex items-center justify-between">
 									<div>
-										<div class="text-color-site-subtle text-sm">{social.email.label} &mdash;</div>
-										<div class="text-color-site-normal group-hover:text-color-site-emphasis">
+										<div class="text-color-site-subtle text-xs">{social.email.label} &mdash;</div>
+										<div
+											class="text-sm md:text-base text-color-site-normal group-hover:text-color-site-stress"
+										>
 											{social.email.username}
 										</div>
 									</div>
 									<div
-										class="flex items-center opacity-0 group-hover:opacity-100 i-carbon:arrow-up-right text-base transition text-color-site-emphasis"
+										class="flex items-center opacity-0 group-hover:opacity-100 i-carbon:arrow-up-right text-base transition text-color-site-stress"
 									>
 									</div>
 								</div>
@@ -132,20 +212,22 @@ import { social } from '@config'
 						<li>
 							<ButtonLink
 								href={social.producthunt.url}
-								className="block p-4 group hover:bg-background-site-rectangle rounded-md transition"
+								className="block p-3 md:p-4 group hover:bg-background-site-rectangle rounded-md transition"
 								external={true}
 							>
-								<div class="flex items-center justify-between">
+								<div slot="children" class="flex items-center justify-between">
 									<div>
-										<div class="text-color-site-subtle text-sm">
+										<div class="text-color-site-subtle text-xs">
 											{social.producthunt.label} &mdash;
 										</div>
-										<div class="text-color-site-normal group-hover:text-color-site-emphasis">
+										<div
+											class="text-sm md:text-base text-color-site-normal group-hover:text-color-site-stress"
+										>
 											{social.producthunt.username}
 										</div>
 									</div>
 									<div
-										class="flex items-center opacity-0 group-hover:opacity-100 i-carbon:arrow-up-right text-base transition text-color-site-emphasis"
+										class="flex items-center opacity-0 group-hover:opacity-100 i-carbon:arrow-up-right text-base transition text-color-site-stress"
 									>
 									</div>
 								</div>
@@ -155,52 +237,6 @@ import { social } from '@config'
 				</section>
 			</article>
 		</main>
+		<Footer />
 	</div>
 </DefaultLayout>
-
-<style>
-	/*
-   * Thanks to https://codepen.io/jakejarvis/pen/pBZWZw
-   */
-	.wave {
-		display: inline-block;
-		animation-duration: 2.5s;
-		animation-iteration-count: infinite;
-		animation-name: wave-animation;
-		transform-origin: 70% 70%;
-	}
-
-	@keyframes wave-animation {
-		0% {
-			transform: rotate(0deg);
-		}
-
-		10% {
-			transform: rotate(14deg);
-		}
-
-		20% {
-			transform: rotate(-8deg);
-		}
-
-		30% {
-			transform: rotate(14deg);
-		}
-
-		40% {
-			transform: rotate(-4deg);
-		}
-
-		50% {
-			transform: rotate(10deg);
-		}
-
-		60% {
-			transform: rotate(0deg);
-		}
-
-		100% {
-			transform: rotate(0deg);
-		}
-	}
-</style>
