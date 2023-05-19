@@ -6,7 +6,10 @@ import ButtonLink from '@components/shared/button/link.astro'
 import Logo from '@components/shared/logo/logo.astro'
 import { social } from '@config'
 
-const writingCollection = await getCollection('writing', ({ data }) => !data.draft)
+const writingCollection = await getCollection(
+	'writing',
+	({ data }) => !data.draft && data.date < new Date()
+)
 
 const sortedWriting = writingCollection.sort((contentA, contentB) => {
 	const oneSecond = 1000
