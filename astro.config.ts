@@ -31,4 +31,7 @@ export default defineConfig({
 		compress(),
 		critters(),
 	],
+	experimental: {
+		assets: true,
+	},
 })
