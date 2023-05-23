@@ -1,5 +1,6 @@
 ---
 import Splitbee from '@components/shared/analytics/splitbee.astro'
+const { PUBLIC_APP_ENV } = process.env
 ---
 
-<Splitbee />
+{PUBLIC_APP_ENV === 'production' && <Splitbee />}
