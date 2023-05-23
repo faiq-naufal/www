@@ -14,7 +14,20 @@ samp,
 pre {
 	font-family: Hack, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
 		'Courier New', monospace;
-	font-size: 1em;
+}
+
+@media (prefers-color-scheme: dark) {
+	pre[data-theme='light'],
+	code[data-theme='light'] {
+		display: none;
+	}
+}
+
+@media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
+	pre[data-theme='dark'],
+	code[data-theme='dark'] {
+		display: none;
+	}
 }
 
 .sr-only {
