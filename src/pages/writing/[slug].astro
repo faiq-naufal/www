@@ -91,22 +91,12 @@ const humanDate = date.toLocaleDateString('en-US', {
 		@apply ml-1.5 pl-3 md:pl-5;
 	}
 
-	.content ul li::marker {
-		content: '•';
-	}
-
-	.content ol {
-		counter-reset: counter;
+	.content ul li {
+		list-style-type: '•';
 	}
 
 	.content ol li {
-		counter-increment: counter;
-
-		@apply ml-3;
-	}
-
-	.content ol li::marker {
-		content: counter(counter) '.';
+		@apply ml-5 list-decimal;
 	}
 
 	.content p code {
