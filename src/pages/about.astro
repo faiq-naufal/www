@@ -1,0 +1,81 @@
+---
+import DefaultLayout from '@components/layouts/default.astro'
+import Footer from '@components/layouts/footer/footer.astro'
+---
+
+<DefaultLayout meta={{ title: 'About me' }}>
+	<div class="py-12 md:py-24 px-6">
+		<main class="mx-auto max-w-2xl">
+			<article class="flex flex-col gap-y-12">
+				<section class="flex items-center gap-4 md:gap-5 text-color-site-stress">
+					<div class="flex items-center">
+						<span class="i-solar:sticker-smile-square-outline text-4xl light-only"></span>
+						<span class="i-solar:sticker-smile-square-bold text-4xl dark-only"></span>
+					</div>
+					<div>
+						<h1 class="text-base md:text-lg">Hello again, I'm Faiq</h1>
+						<p class="text-color-site-subtle text-sm md:text-base">
+							Just regular Asian guy with Indonesian spirit
+						</p>
+					</div>
+				</section>
+
+				<section class="flex flex-col gap-y-4 leading-6 md:leading-7 text-sm md:text-base">
+					<p>
+						Welcome to my personal digital space. I'm from the largest archipelagic country called
+						Indonesia living in the nice populated Jakarta metropolitan area. Turning into the age
+						of {new Date().getFullYear() - new Date('1998').getFullYear()} this year, I'm currently working
+						as a full-time software engineer front end. I like to create digital platform and solution
+						using web technologies. You may find my works are often related to the web stuff.
+					</p>
+					<p>
+						I like listening to music especially the instrumental one. I love lofi, chill, and
+						ambient genres to keep me concentrate on work. Piano is one of my favorite instrument
+						although I never have the chance to learn it. I also enjoy reading and watching movies
+						in my spare time.
+					</p>
+					<p>
+						I want to try to improve my writing and language skill. However, English is not my
+						native language and I'm not a particularly good at it. I want to keep writing until I
+						have enough confidence doing it. That's why I have written some articles in my website.
+						Feel free to read my writing and I hope you can get any information from it.
+					</p>
+				</section>
+
+				<section class="flex flex-col gap-y-4 leading-6 md:leading-7 text-sm md:text-base">
+					<h2
+						class="uppercase font-medium text-xs md:text-sm text-color-site-stress tracking-wider"
+					>
+						About the website
+					</h2>
+					<p>
+						This website is my personal space and I intend to maintain and make this website grows.
+						This place is also where I train my brain to write something meaningful and hopefully
+						helpful to others. I'm trying to keep this website simple to make me easy to maintain.
+					</p>
+				</section>
+			</article>
+		</main>
+		<Footer />
+	</div>
+</DefaultLayout>
+
+<style>
+	.light-only {
+		display: block;
+	}
+
+	.dark-only {
+		display: none;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		.light-only {
+			display: none;
+		}
+
+		.dark-only {
+			display: block;
+		}
+	}
+</style>

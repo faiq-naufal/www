@@ -33,6 +33,7 @@ const {
 	target={external ? '_blank' : '_self'}
 	rel={external ? 'noopener noreferrer' : null}
 >
+	<slot name="children" />
 	<slot />
 </a>
 

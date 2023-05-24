@@ -1,0 +1,92 @@
+---
+title: "Clone and push to your repository on GitHub"
+description: "Clone a repository and push the content to your empty repository on GitHub. You need to update the git remote url and point it to your repository url"
+draft: false
+date: 2023-03-05
+tags:
+  - github
+---
+
+While exploring on GitHub you find an interesting template, starter, or boilerplate and you want to clone, maybe modify it a little and finally publish it to your own repository so you can use it for your starter project. You can fork the repository. However, forking it will tell everyone that you forked the template from the original source and you maybe don't want to leave a trace by forking it. Maybe the repository is also not set as a public template so you really need to clone it before publishing it as your own.
+
+> Before you republish the repository and make it your own. Please read the original repository license first. Some repositories owner may don't like if you republish their repositories and don't give them enough attribution.
+
+## Clone the repository
+
+The first thing to do is by cloning a repository from the GitHub. We will use the [react starter kit](https://github.com/kriasoft/react-starter-kit) from Kriasoft for the example.
+
+```bash
+git clone https://github.com/kriasoft/react-starter-kit.git
+```
+
+After you have successfully cloned the repository, navigate to the cloned repository directory.
+
+```bash
+cd react-starter-kit
+```
+
+## Create a new repository
+
+In order to push the cloned repository to your own. You need an empty repository. [Create a new repository here.](https://github.com/new)
+
+## Set git remote repository's url
+
+This is the most important part of this tutorial. In order to push the cloned repository. You need to update the Git remote repository's url and point it to your new empty repository. To do that, we need to know the current **remote name** for the repository. Let's check it by using this command.
+
+```bash
+git remote -v
+```
+
+This will print the current existing **remote name** alongside the **remote url** for the repository. Most of the time, you will see `origin` for the remote name.
+
+```bash
+# output
+origin	https://github.com/kriasoft/react-starter-kit.git (fetch)
+origin	https://github.com/kriasoft/react-starter-kit.git (push)
+```
+
+Great, now that we know the name and the url for the remote repository, we will update the url based on the existing remote name. We will use this template:
+
+```bash
+git remote set-url <current-remote-name> <new-remote-url>
+```
+
+Now you have two options:
+
+1. If you are updating so that you can use HTTPS protocol, the command will look like this
+    ```bash
+    git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
+    ```
+
+2. If you are updating so that you can use SSH protocol, the command will look like this
+    ```bash
+    git remote set-url origin git@github.com:USERNAME/REPOSITORY.git
+    ```
+
+You need to replace `USERNAME` and `REPOSITORY` with the real username and repository name based on the new empty repository you have created.
+
+If you have done running the above command. You can check again if the remote url is already updated.
+
+```bash
+git remote -v
+```
+
+You can see the below output the remote name is still `origin`. However, the remote url is updated with the one we set.
+
+```bash
+# output
+origin	https://github.com/USERNAME/REPOSITORY.git (fetch)
+origin	https://github.com/USERNAME/REPOSITORY.git (push)
+```
+
+## Push to your repository
+
+Finally the last thing you need to do is to push the content to your remote repository.
+
+```bash
+git push origin main
+```
+
+The command above will push to the remote `origin` with branch `main`. You probably will be prompted to enter the GitHub password or GitHub personal access token in order to proceed with this action.
+
+Assuming you are pointing the remote repository url to the new empty repository and the credential is correct, then all the content should be pushed successfully without problem and you can see the content already uploaded on your new remote repository.
