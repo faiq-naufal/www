@@ -17,6 +17,10 @@ pre {
 		'Courier New', monospace;
 }
 
+pre {
+	display: flex;
+}
+
 p a {
 	display: inline;
 	margin-right: 0.375em;
