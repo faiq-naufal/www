@@ -79,11 +79,20 @@ const humanDate = date.toLocaleDateString('en-US', {
 		@apply mb-5 md:mb-6 text-sm md:text-base leading-6 md:leading-7;
 	}
 
+	.content blockquote {
+		@apply my-5 md:my-6 mx-3 md:mx-5 border-l-4 border-[#444] text-color-site-subtle bg-background-site-rectangle py-4 px-6;
+	}
+
+	.content blockquote p {
+		margin: 0;
+	}
+
 	.content img {
 		@apply rounded-lg my-10 md:my-12;
 	}
 
-	.content ul {
+	.content ul,
+	.content ol {
 		@apply mb-5 md:mb-6 text-sm md:text-base leading-6 md:leading-7 flex flex-col gap-1;
 	}
 
@@ -117,5 +126,10 @@ const humanDate = date.toLocaleDateString('en-US', {
 
 	.content pre > code {
 		@apply grid;
+	}
+
+	.content b,
+	.content strong {
+		@apply font-medium text-color-site-stress;
 	}
 </style>
