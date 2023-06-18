@@ -28,7 +28,7 @@ After the DNS records for www subdomain is added, we’re ready to set a rule th
 
 ## Method 1: Set redirect rule with single redirects
 
-This is the method that I’m currently using. The single redirects is a feature from Cloudflare that allow us to create a static and dynamic URL redirects. It offers more flexibility built specifically for URL redirects purpose. We can find the single redirects menu in the Cloudflare domain menu. The menu is called redirect rules. If you use a free plan, you can create up to 10 single redirects rules.
+This is the method that I’m currently using. The single redirects is a feature from Cloudflare that allow us to create a static and dynamic URL redirects. It offers more flexibility and built specifically for URL redirects purpose. We can find the single redirects menu in the Cloudflare domain menu. The menu is called redirect rules. If you use a free plan, you can create up to 10 single redirects rules.
 
 There are static and dynamic URL redirects, and the one we will use is the dynamic URL type. Why we use dynamic URL type? This is because with static URL redirect type, you can only input a static URL redirect. We want to create a dynamic URL redirect rule that uses expression from Cloudflare. For example, with `concat()` function we can get the current path of the incoming request URL and then concat it to the destination URL.
 
