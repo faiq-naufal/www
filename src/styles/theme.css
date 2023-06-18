@@ -21,7 +21,8 @@ pre {
 	display: flex;
 }
 
-p a {
+p a,
+.content li a {
 	display: inline;
 	margin-right: 0.375em;
 	color: var(--color-site-emphasis);
@@ -50,7 +51,8 @@ p a::after {
 	vertical-align: top;
 }
 
-p a:hover {
+p a:hover,
+.content li a:hover {
 	color: var(--color-site-stress);
 	text-decoration: none;
 }
