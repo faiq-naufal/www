@@ -40,7 +40,7 @@ In the configuration above, the rule will do a checking for any incoming request
 
 I set the status code to `301` redirect because I expect the source URL (www version) is always to be used to redirect visitors and give indication that visitors should not visit that URL to view the page. I also set the "Preserve query string" option to preserve any query string from the incoming request.
 
-If you have configured the DNS and rule correctly, any incoming request will be redirected to the non-www version. If you want to configure non-www to www version, just replace the value with your preferred one.
+If you have configured the DNS and rule correctly, any incoming request will be redirected to the non-www version.
 
 ## Method 2: Set redirect rule with page rule
 
@@ -54,7 +54,7 @@ The above configuration will create a page rule that will redirect every page re
 
 The `$1` refer to the first wildcard `*` we define in the source URL and will append the path from the source URL to the destination URL. For example, if the visitor goes to `www.faiqnaufal.com/about` then the destination URL will be redirected to  `https://faiqnaufal.com/about`.
 
-If you have configured the DNS and rule correctly, any incoming request will be redirected to the non-www version. If you want to configure non-www to www version, just replace the value with your preferred one.
+If you have configured the DNS and rule correctly, any incoming request will be redirected to the non-www version.
 
 For more references, see below links:
 - https://developers.cloudflare.com/support/page-rules/configuring-url-forwarding-or-redirects-with-page-rules/
