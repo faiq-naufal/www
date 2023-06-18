@@ -36,7 +36,7 @@ To create a new dynamic redirect rule that redirects from www to non-www domain,
 
 ![Image of creating a new single redirect rule with dynamic type](./add-single-redirects-rule.png "Image of creating a new single redirect rule with dynamic type")
 
-In the configuration above, the rule will do a checking for any incoming request hostname. If the hostname equals to `www.faiqnaufal.com`, then we will do a URL redirect with the `dynamic` type to https://faiqnaufal.com and concat it with the current URI path of the incoming request.
+In the configuration above, the rule will do a checking for any incoming request hostname. If the hostname equals to `www.faiqnaufal.com`, then we will do a URL redirect with the `dynamic` type to `https://faiqnaufal.com` and concat it with the current URI path of the incoming request.
 
 I set the status code to `301` redirect because I expect the source URL (www version) is always to be used to redirect visitors and give indication that visitors should not visit that URL to view the page. I also set the "Preserve query string" option to preserve any query string from the incoming request.
 
@@ -50,9 +50,9 @@ To create a page rule that redirects from www to non-www domain. The configurati
 
 ![Image of creating a new page rule](./add-page-rule.png "Image of creating a new page rule")
 
-The above configuration will create a page rule that will redirect every page request under www.faiqnaufal.com domain to https://faiqnaufal.com and set the 301 permanent redirect status code.
+The above configuration will create a page rule that will redirect every page request under `www.faiqnaufal.com` domain to `https://faiqnaufal.com` and set the 301 permanent redirect status code.
 
-The `$1` refer to the first wildcard `*` we define in the source URL and will append the path from the source URL to the destination URL. For example, if the visitor goes to www.faiqnaufal.com/about then the destination URL will be redirected to  https://faiqnaufal.com/about.
+The `$1` refer to the first wildcard `*` we define in the source URL and will append the path from the source URL to the destination URL. For example, if the visitor goes to `www.faiqnaufal.com/about` then the destination URL will be redirected to  `https://faiqnaufal.com/about`.
 
 If you have configured the DNS and rule correctly, any incoming request will be redirected to the non-www version. If you want to configure non-www to www version, just replace the value with your preferred one.
 
