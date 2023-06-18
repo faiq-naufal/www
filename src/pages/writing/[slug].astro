@@ -112,15 +112,18 @@ const humanDate = date.toLocaleDateString('en-US', {
 		@apply mb-0;
 	}
 
-	.content p code {
+	.content p > code,
+	.content li > code {
 		@apply p-1 rounded bg-background-site-rectangle text-color-site-stress text-[13px] leading-5 md:text-sm whitespace-nowrap;
 	}
 
-	.content p code::before {
+	.content p > code::before,
+	.content li > code::before {
 		content: '`';
 	}
 
-	.content p code::after {
+	.content p > code::after,
+	.content li > code::after {
 		content: '`';
 	}
 
