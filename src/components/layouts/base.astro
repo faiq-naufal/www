@@ -9,6 +9,7 @@ import { metadata } from '@config'
 import HeadScript from '@components/layouts/head/script.astro'
 import HeadMeta from '@components/layouts/head/meta.astro'
 import HeadAnalytics from '@components/layouts/head/analytics.astro'
+import FooterScript from '@components/layouts/footer/script.astro'
 
 export interface Props {
 	meta?: {
@@ -30,5 +31,6 @@ const meta = props.meta || {}
 	</head>
 	<body>
 		<slot />
+		<FooterScript />
 	</body>
 </html>
