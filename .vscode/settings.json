@@ -1,35 +1,6 @@
 {
-  "[astro]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-  "[css]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-  "[jsonc]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-  "[json]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-  "[javascript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-  "[typescript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-  "editor.formatOnSave": true,
-	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true
-	},
-  "eslint.enable": true,
-	"eslint.lintTask.enable": true,
-	"eslint.run": "onType",
-	"eslint.validate": [
-    "astro",
-    "javascript",
-    "typescript",
-  ],
-  "stylelint.validate": ["css", "postcss", "astro"],
-	"stylelint.snippet": ["css", "postcss", "astro"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": true
 }
