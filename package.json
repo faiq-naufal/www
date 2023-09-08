@@ -8,6 +8,7 @@
     "preview": "astro preview",
     "start": "npm run build && npm run preview",
     "astro": "astro",
+    "check:prettier": "prettier . --check",
     "check:lint": "eslint .",
     "check:type": "tsc"
   },
@@ -43,6 +44,7 @@
     "unocss": "^0.55.7"
   },
   "dependencies": {
-    "@fontsource-variable/mulish": "^5.0.9"
+    "@fontsource-variable/mulish": "^5.0.9",
+    "@fontsource-variable/roboto-mono": "^5.0.9"
   }
 }
