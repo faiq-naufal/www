@@ -1,49 +1,35 @@
 /** @type {import('@types/eslint').Linter.Config} */
 module.exports = {
-	ignorePatterns: ['node_modules', 'dist'],
-	root: true,
-	env: {
-		node: true,
-	},
-	parser: '@typescript-eslint/parser',
-	plugins: ['@typescript-eslint', 'prettier'],
-	extends: [
-		'eslint:recommended',
-		'plugin:@typescript-eslint/recommended',
-		'plugin:prettier/recommended',
-		'plugin:astro/recommended',
-		'plugin:astro/jsx-a11y-recommended',
-	],
-	overrides: [
-		{
-			files: ['*.astro'],
-			parser: 'astro-eslint-parser',
-			parserOptions: {
-				parser: '@typescript-eslint/parser',
-				extraFileExtensions: ['.astro'],
-			},
-			rules: {
-				'prettier/prettier': 'off',
-				'import/no-named-as-default-member': 'off',
-				'import/no-named-as-default': 'off',
-				'@typescript-eslint/consistent-type-imports': 'error',
-				'@typescript-eslint/no-unused-vars': 'off',
-			},
-		},
-		{
-			files: ['**/*.ts'],
-			parser: '@typescript-eslint/parser',
-			extends: ['plugin:@typescript-eslint/recommended'],
-			rules: {
-				'@typescript-eslint/no-unused-vars': [
-					'error',
-					{ argsIgnorePattern: '^_', destructuredArrayIgnorePattern: '^_' },
-				],
-				'@typescript-eslint/no-non-null-assertion': 'off',
-			},
-		},
-	],
-	rules: {
-		'@typescript-eslint/no-var-requires': 'warn',
-	},
+  root: true,
+  env: {
+    node: true,
+  },
+  plugins: ['@typescript-eslint', 'prettier'],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
+  overrides: [
+    {
+      files: '**/*.+(ts|tsx)',
+      parser: '@typescript-eslint/parser',
+      plugins: ['@typescript-eslint/eslint-plugin'],
+      extends: ['plugin:@typescript-eslint/recommended'],
+      rules: {
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-non-null-assertion': 'off',
+      },
+    },
+  ],
+  rules: {
+    'prettier/prettier': [
+      'warn',
+      {
+        printWidth: 100,
+        semi: false,
+        singleQuote: true,
+        trailingComma: 'es5',
+        tabWidth: 2,
+        useTabs: false,
+      },
+    ],
+  },
+  ignorePatterns: ['node_modules', 'dist'],
 }

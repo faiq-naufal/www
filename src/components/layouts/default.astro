@@ -1,11 +1,11 @@
 ---
-import BaseLayout from '@components/layouts/base.astro'
+import BaseLayout from '@/components/layouts/base.astro'
 
 export interface Props {
-	meta?: {
-		title?: string
-		description?: string
-	}
+  meta?: {
+    title?: string
+    description?: string
+  }
 }
 
 const props = Astro.props as Props
@@ -13,5 +13,5 @@ const meta = props.meta || {}
 ---
 
 <BaseLayout meta={meta}>
-	<slot />
+  <slot />
 </BaseLayout>

@@ -1,11 +1,11 @@
 ---
-import { metadata } from '@config'
+import { metadata } from '@/config'
 
 export interface Props {
-	meta: {
-		title?: string
-		description?: string
-	}
+  meta: {
+    title?: string
+    description?: string
+  }
 }
 
 const props = Astro.props as Props
@@ -26,27 +26,29 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 <meta name="title" content={siteTitle} />
 <meta name="description" content={description} />
 <meta name="author" content={metadata.author} />
-<meta name="apple-mobile-web-app-capable" content="yes" />
 <link rel="canonical" href={canonicalURL} />
 <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap-index.xml" />
+
+<!-- Chrome -->
+<meta name="google" content="notranslate" />
+
 <!-- Favicons -->
 <link rel="icon" href="/favicon/favicon.ico" sizes="any" />
 <link rel="icon" href="/favicon/favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="/favicon/apple-touch-icon-180x180.png" />
 <link rel="manifest" href="/manifest.webmanifest" />
+
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content={siteTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonicalURL} />
+
 <!-- Twitter -->
 <meta property="twitter:card" content="summary" />
 <meta property="twitter:url" content={canonicalURL} />
 <meta property="twitter:title" content={siteTitle} />
 <meta property="twitter:description" content={description} />
+
 <!-- Theme -->
 <meta name="theme-color" content="hsl(var(--background-site-body))" />
-<!-- Font -->
-<link rel="preconnect" href="https://fonts.cdnfonts.com" />
-<link rel="preload" href="https://fonts.cdnfonts.com/css/graphik?styles=44660,44658" as="style" />
-<link href="https://fonts.cdnfonts.com/css/graphik?styles=44660,44658" rel="stylesheet" />

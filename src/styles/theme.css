@@ -1,88 +1,101 @@
 :root {
-	font-family: Graphik, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
-		Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-		'Segoe UI Symbol', 'Noto Color Emoji';
+  font-family:
+    'Mulish Variable',
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    'Noto Sans',
+    sans-serif,
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol',
+    'Noto Color Emoji';
 }
 
 body {
-	background-color: var(--background-site-body);
-	color: var(--color-site-normal);
+  background-color: var(--background-site-body);
+  color: var(--color-site-normal);
 }
 
 code,
 kbd,
 samp,
 pre {
-	font-family: Hack, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
-		'Courier New', monospace;
+  font-family: 'Roboto Mono Variable', ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo,
+    Consolas, 'DejaVu Sans Mono', monospace;
 }
 
 pre {
-	display: flex;
+  display: flex;
 }
 
 p a,
 .content li a {
-	display: inline;
-	margin-right: 0.375em;
-	color: var(--color-site-emphasis);
-	text-decoration: underline;
-	text-decoration-thickness: 0.05em;
-	text-underline-offset: 0.375em;
-	transition: all;
-	transition-duration: 100ms;
-	transition-timing-function: ease-in-out;
+  display: inline;
+  margin-right: 0.375em;
+  color: var(--color-site-emphasis);
+  text-decoration: underline;
+  text-decoration-thickness: 0.05em;
+  text-underline-offset: 0.375em;
+  transition: all;
+  transition-duration: 100ms;
+  transition-timing-function: ease-in-out;
 }
 
 p a::after {
-	position: relative;
-	top: 0.125em;
-	right: -0.025em;
-	display: inline-block;
-	width: 0.375em;
-	height: 0.375em;
-	border-radius: 999px;
-	margin-right: -0.375em;
-	box-shadow: inset 0 0 0 1px var(--color-site-emphasis);
-	content: '';
-	transition: all;
-	transition-duration: 100ms;
-	transition-timing-function: ease-in-out;
-	vertical-align: top;
+  position: relative;
+  top: 0.125em;
+  right: -0.025em;
+  display: inline-block;
+  width: 0.375em;
+  height: 0.375em;
+  border-radius: 999px;
+  margin-right: -0.375em;
+  box-shadow: inset 0 0 0 1px var(--color-site-emphasis);
+  content: '';
+  transition: all;
+  transition-duration: 100ms;
+  transition-timing-function: ease-in-out;
+  vertical-align: top;
 }
 
 p a:hover,
 .content li a:hover {
-	color: var(--color-site-stress);
-	text-decoration: none;
+  color: var(--color-site-stress);
+  text-decoration: none;
 }
 
 p a:hover::after {
-	box-shadow: inset 0 0 0 16px var(--color-site-stress);
+  box-shadow: inset 0 0 0 16px var(--color-site-stress);
 }
 
 @media (prefers-color-scheme: dark) {
-	pre[data-theme='light'],
-	code[data-theme='light'] {
-		display: none;
-	}
+  pre[data-theme='light'],
+  code[data-theme='light'] {
+    display: none;
+  }
 }
 
 @media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
-	pre[data-theme='dark'],
-	code[data-theme='dark'] {
-		display: none;
-	}
+  pre[data-theme='dark'],
+  code[data-theme='dark'] {
+    display: none;
+  }
 }
 
 .sr-only {
-	position: absolute;
-	overflow: hidden;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	border-width: 0;
-	margin: -1px;
-	clip: rect(0, 0, 0, 0);
-	white-space: nowrap;
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border-width: 0;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
 }

@@ -1,36 +1,39 @@
 ---
-import '@styles/reset.css'
-import '@styles/tailwind.css'
-import '@styles/color.css'
-import '@styles/font.css'
-import '@styles/theme.css'
+import '@/styles/reset.css'
+import '@/styles/tailwind.css'
+import '@/styles/color.css'
+import '@/styles/theme.css'
+import '@fontsource-variable/mulish'
+import '@fontsource-variable/roboto-mono'
 import '@total-typescript/ts-reset'
-import { metadata } from '@config'
-import HeadScript from '@components/layouts/head/script.astro'
-import HeadMeta from '@components/layouts/head/meta.astro'
-import HeadAnalytics from '@components/layouts/head/analytics.astro'
-import FooterScript from '@components/layouts/footer/script.astro'
+import { ViewTransitions } from 'astro:transitions'
+import { metadata } from '@/config'
+import HeadScript from '@/components/layouts/head/script.astro'
+import HeadMeta from '@/components/layouts/head/meta.astro'
+import HeadAnalytics from '@/components/layouts/head/analytics.astro'
+import FooterScript from '@/components/layouts/footer/script.astro'
 
 export interface Props {
-	meta?: {
-		title?: string
-		description?: string
-	}
+  meta?: {
+    title?: string
+    description?: string
+  }
 }
 
 const props = Astro.props as Props
 const meta = props.meta || {}
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={metadata.lang} dir={metadata.dir}>
-	<head>
-		<HeadMeta meta={meta} />
-		<HeadScript />
-		<HeadAnalytics />
-	</head>
-	<body>
-		<slot />
-		<FooterScript />
-	</body>
+  <head>
+    <HeadMeta meta={meta} />
+    <HeadScript />
+    <HeadAnalytics />
+    <ViewTransitions />
+  </head>
+  <body>
+    <slot />
+    <FooterScript />
+  </body>
 </html>
