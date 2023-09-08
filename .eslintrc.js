@@ -5,21 +5,8 @@ module.exports = {
     node: true,
   },
   plugins: ['@typescript-eslint', 'prettier'],
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:astro/recommended',
-    'prettier',
-  ],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
   overrides: [
-    {
-      files: ['*.astro'],
-      parser: 'astro-eslint-parser',
-      parserOptions: {
-        parser: '@typescript-eslint/parser',
-        extraFileExtensions: ['.astro'],
-      },
-    },
     {
       files: '**/*.+(ts|tsx)',
       parser: '@typescript-eslint/parser',
@@ -35,6 +22,7 @@ module.exports = {
     'prettier/prettier': [
       'warn',
       {
+        printWidth: 100,
         semi: false,
         singleQuote: true,
         tabWidth: 2,
