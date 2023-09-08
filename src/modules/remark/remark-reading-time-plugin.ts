@@ -7,8 +7,7 @@ export const remarkReadingTime: RemarkPlugin = () => {
     const textOnPage = toString(tree)
     const readingTime = getReadingTime(textOnPage)
 
-    const frontmatter: Record<string, any> = (file.data.astro as any)
-      .frontmatter
+    const frontmatter: Record<string, any> = (file.data.astro as any).frontmatter
     frontmatter.minutesRead = readingTime
   }
 }
