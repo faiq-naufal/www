@@ -6,6 +6,7 @@ import '@/styles/theme.css'
 import '@fontsource-variable/mulish'
 import '@fontsource-variable/roboto-mono'
 import '@total-typescript/ts-reset'
+import { ViewTransitions } from 'astro:transitions'
 import { metadata } from '@/config'
 import HeadScript from '@/components/layouts/head/script.astro'
 import HeadMeta from '@/components/layouts/head/meta.astro'
@@ -29,6 +30,7 @@ const meta = props.meta || {}
     <HeadMeta meta={meta} />
     <HeadScript />
     <HeadAnalytics />
+    <ViewTransitions />
   </head>
   <body>
     <slot />
