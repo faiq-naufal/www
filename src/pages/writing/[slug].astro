@@ -1,23 +1,23 @@
 ---
 import type { InferGetStaticPropsType } from 'astro'
 import { getCollection } from 'astro:content'
-import DefaultLayout from '@components/layouts/default.astro'
-import Footer from '@components/layouts/footer/footer.astro'
+import DefaultLayout from '@/components/layouts/default.astro'
+import Footer from '@/components/layouts/footer/footer.astro'
 
 export async function getStaticPaths() {
-	const writingCollection = await getCollection(
-		'writing',
-		({ data }) => !data.draft && data.date < new Date()
-	)
+  const writingCollection = await getCollection(
+    'writing',
+    ({ data }) => !data.draft && data.date < new Date()
+  )
 
-	return writingCollection.map((writing) => ({
-		params: {
-			slug: writing.slug,
-		},
-		props: {
-			post: writing,
-		},
-	}))
+  return writingCollection.map((writing) => ({
+    params: {
+      slug: writing.slug,
+    },
+    props: {
+      post: writing,
+    },
+  }))
 }
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>
@@ -31,112 +31,112 @@ const { title, description, date } = data
 const [minute, timeUnit] = typeof minutesRead.text === 'string' ? minutesRead.text.split(' ') : []
 
 const DDMMYYYY = date.toLocaleDateString('en-GB', {
-	timeZone: 'Asia/Jakarta',
+  timeZone: 'Asia/Jakarta',
 })
 
 const humanDate = date.toLocaleDateString('en-US', {
-	timeZone: 'Asia/Jakarta',
-	year: 'numeric',
-	month: 'short',
-	day: '2-digit',
+  timeZone: 'Asia/Jakarta',
+  year: 'numeric',
+  month: 'short',
+  day: '2-digit',
 })
 ---
 
 <DefaultLayout meta={{ title, description }}>
-	<div class="py-12 md:py-24 px-6">
-		<main class="mx-auto max-w-2xl">
-			<article>
-				<div class="mb-16 flex flex-col gap-2">
-					<h1 class="text-color-site-stress text-base md:text-lg">{title}</h1>
-					<div
-						class="flex items-center gap-6 md:gap-8 text-xs md:text-sm leading-4 text-color-site-subtle"
-					>
-						<time datetime={DDMMYYYY}>
-							{humanDate}
-						</time>
-						<time datetime={`PT${minute}${timeUnit[0].toUpperCase()}`}>
-							{minute}
-							{timeUnit} to read
-						</time>
-					</div>
-				</div>
-				<div class="content">
-					<Content />
-				</div>
-			</article>
-		</main>
-		<Footer />
-	</div>
+  <div class="py-12 md:py-24 px-6">
+    <main class="mx-auto max-w-2xl">
+      <article>
+        <div class="mb-16 flex flex-col gap-2">
+          <h1 class="text-color-site-stress text-base md:text-lg">{title}</h1>
+          <div
+            class="flex items-center gap-6 md:gap-8 text-xs md:text-sm leading-4 text-color-site-subtle"
+          >
+            <time datetime={DDMMYYYY}>
+              {humanDate}
+            </time>
+            <time datetime={`PT${minute}${timeUnit[0].toUpperCase()}`}>
+              {minute}
+              {timeUnit} to read
+            </time>
+          </div>
+        </div>
+        <div class="content">
+          <Content />
+        </div>
+      </article>
+    </main>
+    <Footer />
+  </div>
 </DefaultLayout>
 
 <style is:global>
-	.content h2,
-	.content h3 {
-		@apply mt-10 md:mt-12 mb-3 text-color-site-stress text-sm md:text-base;
-	}
+  .content h2,
+  .content h3 {
+    @apply mt-10 md:mt-12 mb-3 text-color-site-stress text-sm md:text-base;
+  }
 
-	.content p {
-		@apply mb-5 md:mb-6 text-sm md:text-base leading-6 md:leading-7;
-	}
+  .content p {
+    @apply mb-5 md:mb-6 text-sm md:text-base leading-6 md:leading-7;
+  }
 
-	.content blockquote {
-		@apply my-5 md:my-6 mx-3 md:mx-5 border-l-4 border-[#444] text-color-site-subtle bg-background-site-rectangle py-4 px-6;
-	}
+  .content blockquote {
+    @apply my-5 md:my-6 mx-3 md:mx-5 border-l-4 border-[#444] text-color-site-subtle bg-background-site-rectangle py-4 px-6;
+  }
 
-	.content blockquote p {
-		margin: 0;
-	}
+  .content blockquote p {
+    margin: 0;
+  }
 
-	.content img {
-		@apply rounded-lg my-10 md:my-12;
-	}
+  .content img {
+    @apply rounded-lg my-10 md:my-12;
+  }
 
-	.content ul,
-	.content ol {
-		@apply mb-5 md:mb-6 text-sm md:text-base leading-6 md:leading-7 flex flex-col gap-1;
-	}
+  .content ul,
+  .content ol {
+    @apply mb-5 md:mb-6 text-sm md:text-base leading-6 md:leading-7 flex flex-col gap-1;
+  }
 
-	.content li {
-		@apply ml-1.5 pl-3 md:pl-5;
-	}
+  .content li {
+    @apply ml-1.5 pl-3 md:pl-5;
+  }
 
-	.content ul li {
-		list-style-type: '•';
-	}
+  .content ul li {
+    list-style-type: '•';
+  }
 
-	.content ol li {
-		@apply ml-5 list-decimal;
-	}
+  .content ol li {
+    @apply ml-5 list-decimal;
+  }
 
-	.content li p {
-		@apply mb-0;
-	}
+  .content li p {
+    @apply mb-0;
+  }
 
-	.content p > code,
-	.content li > code {
-		@apply p-1 rounded bg-background-site-rectangle text-color-site-stress text-[13px] leading-5 md:text-sm whitespace-nowrap;
-	}
+  .content p > code,
+  .content li > code {
+    @apply p-1 rounded bg-background-site-rectangle text-color-site-stress text-[13px] leading-5 md:text-sm whitespace-nowrap;
+  }
 
-	.content p > code::before,
-	.content li > code::before {
-		content: '`';
-	}
+  .content p > code::before,
+  .content li > code::before {
+    content: '`';
+  }
 
-	.content p > code::after,
-	.content li > code::after {
-		content: '`';
-	}
+  .content p > code::after,
+  .content li > code::after {
+    content: '`';
+  }
 
-	.content pre {
-		@apply mt-5 md:mt-6 mb-10 md:mb-12 p-4 md:p-5 rounded-md bg-background-site-rectangle overflow-x-auto text-[13px] leading-5 md:text-sm;
-	}
+  .content pre {
+    @apply mt-5 md:mt-6 mb-10 md:mb-12 p-4 md:p-5 rounded-md bg-background-site-rectangle overflow-x-auto text-[13px] leading-5 md:text-sm;
+  }
 
-	.content pre > code {
-		@apply grid;
-	}
+  .content pre > code {
+    @apply grid;
+  }
 
-	.content b,
-	.content strong {
-		@apply font-medium text-color-site-stress;
-	}
+  .content b,
+  .content strong {
+    @apply font-medium text-color-site-stress;
+  }
 </style>

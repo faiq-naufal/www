@@ -1,5 +1,5 @@
 ---
-import { metadata } from '@config'
+import { metadata } from '@/config'
 
 export interface Props {
   meta: {
@@ -14,9 +14,7 @@ const title = meta.title || ''
 const description = meta.description || metadata.description
 
 const titleSeparator = '|'
-const siteTitle = title
-  ? `${title} ${titleSeparator} ${metadata.author}`
-  : metadata.author
+const siteTitle = title ? `${title} ${titleSeparator} ${metadata.author}` : metadata.author
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
@@ -29,12 +27,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 <meta name="description" content={description} />
 <meta name="author" content={metadata.author} />
 <link rel="canonical" href={canonicalURL} />
-<link
-  rel="sitemap"
-  type="application/xml"
-  title="Sitemap"
-  href="/sitemap-index.xml"
-/>
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap-index.xml" />
 
 <!-- Chrome -->
 <meta name="google" content="notranslate" />

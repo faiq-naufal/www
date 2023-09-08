@@ -1,10 +1,10 @@
 ---
 import { getCollection } from 'astro:content'
-import DefaultLayout from '@components/layouts/default.astro'
-import Footer from '@components/layouts/footer/footer.astro'
-import ButtonLink from '@components/shared/button/link.astro'
-import Logo from '@components/shared/logo/logo.astro'
-import { social } from '@config'
+import DefaultLayout from '@/components/layouts/default.astro'
+import Footer from '@/components/layouts/footer/footer.astro'
+import ButtonLink from '@/components/shared/button/link.astro'
+import Logo from '@/components/shared/logo/logo.astro'
+import { social } from '@/config'
 
 const writingCollection = await getCollection(
   'writing',
