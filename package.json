@@ -10,7 +10,8 @@
     "astro": "astro",
     "check:prettier": "prettier . --check",
     "check:lint": "eslint .",
-    "check:type": "tsc"
+    "check:type": "tsc",
+    "write:prettier": "prettier . --write"
   },
   "browserslist": [
     "defaults"
