@@ -119,6 +119,12 @@ abbr[title] {
   text-decoration: underline dotted;
 }
 
+a {
+  background-color: transparent;
+  color: inherit;
+  text-decoration: inherit;
+}
+
 a:not([class]) {
   text-decoration-skip-ink: auto;
 }
