@@ -54,10 +54,12 @@ const humanDate = date.toLocaleDateString('en-US', {
             <time datetime={DDMMYYYY}>
               {humanDate}
             </time>
-            <time datetime={`PT${minute}${timeUnit[0].toUpperCase()}`}>
-              {minute}
-              {timeUnit} to read
-            </time>
+            <div>
+              <time datetime={`PT${minute}${timeUnit[0].toUpperCase()}`}>
+                {minute}&nbsp;{timeUnit}
+              </time>
+              <span>&nbsp;to read</span>
+            </div>
           </div>
         </div>
         <div class="content">
