@@ -122,6 +122,7 @@ abbr[title] {
 a {
   background-color: transparent;
   color: inherit;
+  text-decoration: inherit;
 }
 
 a:not([class]) {
