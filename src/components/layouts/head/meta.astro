@@ -29,6 +29,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 <link rel="canonical" href={canonicalURL} />
 <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap-index.xml" />
 
+<!-- Styles -->
+<link rel="preload" href="/styles/base.css" as="style" />
+<link rel="preload" href="/styles/color.css" as="style" />
+<link rel="preload" href="/styles/theme.css" as="style" />
+
 <!-- Chrome -->
 <meta name="google" content="notranslate" />
 
