@@ -1,17 +1,20 @@
-:root {
-  font-family: 'Public Sans Variable', 'Public Sans Variable fallback';
-}
-
 body {
   background-color: var(--background-site-body);
   color: var(--color-site-normal);
 }
 
-code,
-kbd,
-samp,
-pre {
-  font-family: 'JetBrains Mono Variable';
+.sans-serif-loaded body {
+  font-family: 'Public Sans Variable', '-apple-system', 'BlinkMacSystemFont', 'Helvetica Neue',
+    'Segoe UI', 'Arial', 'Roboto', 'Open Sans', 'Ubuntu', 'Cantarell', 'sans-serif', 'color-emoji';
+}
+
+.monospace-loaded code,
+.monospace-loaded kbd,
+.monospace-loaded samp,
+.monospace-loaded pre {
+  font-family: 'JetBrains Mono Variable', 'Menlo', 'Monaco', 'Cascadia Mono', 'Segoe UI Mono',
+    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono',
+    'Droid Sans Mono', 'Courier New', 'monospace', 'color-emoji';
 }
 
 pre {

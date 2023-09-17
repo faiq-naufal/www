@@ -97,7 +97,7 @@ meter {
   text-rendering: optimizespeed;
   font-synthesis: none;
   font-family: '-apple-system', 'BlinkMacSystemFont', 'Helvetica Neue', 'Segoe UI', 'Arial',
-    'Roboto', 'Open Sans', 'Ubuntu', 'Cantarell', sans-serif, color-emoji;
+    'Roboto', 'Open Sans', 'Ubuntu', 'Cantarell', 'sans-serif', 'color-emoji';
 }
 
 html:focus-within {
@@ -133,7 +133,9 @@ code,
 kbd,
 samp,
 pre {
-  font-family: 'Menlo', 'Monaco', 'Source Code Pro', 'Cascadia Code', monospace, color-emoji;
+  font-family: 'Menlo', 'Monaco', 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono',
+    'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New',
+    'monospace', 'color-emoji';
   font-size: 1em;
 }
 
