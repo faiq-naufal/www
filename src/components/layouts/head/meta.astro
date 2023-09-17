@@ -36,12 +36,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
   as="font"
   type="font/woff2"
   crossorigin
+  transition:persist
 />
-<link rel="preload" href="/styles/font.css" as="style" onload="this.rel = 'stylesheet'; " />
-<link rel="preload" href="/styles/color.css" as="style" onload="this.rel = 'stylesheet'; " />
-<link rel="preload" href="/styles/base.css" as="style" onload="this.rel = 'stylesheet'; " />
-<link rel="preload" href="/styles/theme.css" as="style" onload="this.rel = 'stylesheet'; " />
-<link rel="preload" href="/scripts/font-loader.js" as="script" />
+<link rel="preload" href="/styles/font.css" as="style" transition:persist />
+<link rel="preload" href="/styles/color.css" as="style" transition:persist />
+<link rel="preload" href="/styles/base.css" as="style" transition:persist />
+<link rel="preload" href="/styles/theme.css" as="style" transition:persist />
+<link rel="preload" href="/scripts/font-loader.js" as="script" transition:persist />
 
 <!-- Critical Styles -->
 <link rel="stylesheet" href="/styles/font.css" />
