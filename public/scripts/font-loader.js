@@ -21,3 +21,5 @@ function fontLoader() {
 }
 
 fontLoader()
+
+document.addEventListener('astro:after-swap', fontLoader)
