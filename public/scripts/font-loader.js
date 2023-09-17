@@ -1,5 +1,4 @@
-<script type="text/javascript" async>
-function loadFonts() {
+function fontLoader() {
   if (sessionStorage.fontsLoaded) {
     document.documentElement.classList.add('sans-serif-loaded')
     document.documentElement.classList.add('monospace-loaded')
@@ -10,10 +9,10 @@ function loadFonts() {
     Promise.all([
       document.fonts.load('normal 1em Public Sans Variable'),
       document.fonts.load('italic 1em Public Sans Variable'),
-    ]).then((data) => {
+    ]).then(() => {
       document.documentElement.classList.add('sans-serif-loaded')
 
-      document.fonts.load('normal 1em JetBrains Mono Variable').then((data) => {
+      document.fonts.load('normal 1em JetBrains Mono Variable').then(() => {
         document.documentElement.classList.add('monospace-loaded')
         sessionStorage.fontsLoaded = true
       })
@@ -21,5 +20,4 @@ function loadFonts() {
   }
 }
 
-loadFonts()
-</script>
+fontLoader()
