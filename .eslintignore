@@ -2,6 +2,7 @@
 /*
 
 # Except these files & folders
+!/public
 !/src
 !/.github
 !tsconfig.json
