@@ -1,7 +1,7 @@
 import rehypePrettyCode from 'rehype-pretty-code'
 import type { Options as RehypePrettyCodeOptions } from 'rehype-pretty-code'
 
-export const rehypePrettyCodeOptions: Partial<RehypePrettyCodeOptions> = {
+export const rehypePrettyCodeOptions: RehypePrettyCodeOptions = {
   theme: {
     dark: 'vitesse-dark',
     light: 'vitesse-light',
@@ -22,4 +22,6 @@ export const rehypePrettyCodeOptions: Partial<RehypePrettyCodeOptions> = {
   },
 }
 
-export const rehypePrettyCodePlugin = rehypePrettyCode
+export const rehypePrettyCodePlugin = () => {
+  return rehypePrettyCode(rehypePrettyCodeOptions)
+}

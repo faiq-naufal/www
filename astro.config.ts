@@ -7,10 +7,7 @@ import sitemap from '@astrojs/sitemap'
 import partytown from '@astrojs/partytown'
 import mdx from '@astrojs/mdx'
 import { remarkReadingTime } from './src/modules/remark/remark-reading-time-plugin'
-import {
-  rehypePrettyCodePlugin,
-  rehypePrettyCodeOptions,
-} from './src/modules/rehype/rehype-pretty-code-plugin'
+import { rehypePrettyCodePlugin } from './src/modules/rehype/rehype-pretty-code-plugin'
 
 dotenv.config()
 
@@ -18,6 +15,7 @@ const { PUBLIC_CANONICAL_ORIGIN } = process.env
 
 export default defineConfig({
   site: PUBLIC_CANONICAL_ORIGIN,
+  prefetch: true,
   integrations: [
     partytown({}),
     UnoCSS({
@@ -30,7 +28,7 @@ export default defineConfig({
       extendMarkdownConfig: false,
       syntaxHighlight: false,
       remarkPlugins: [remarkReadingTime],
-      rehypePlugins: [[rehypePrettyCodePlugin, rehypePrettyCodeOptions]],
+      rehypePlugins: [rehypePrettyCodePlugin],
     }),
     sitemap(),
   ],

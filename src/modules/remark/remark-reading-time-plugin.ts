@@ -1,9 +1,10 @@
-import type { RemarkPlugin } from '@astrojs/markdown-remark'
+import type { Root } from 'mdast'
+import type { VFile } from 'vfile'
 import getReadingTime from 'reading-time'
 import { toString } from 'mdast-util-to-string'
 
-export const remarkReadingTime: RemarkPlugin = () => {
-  return (tree, file) => {
+export const remarkReadingTime = () => {
+  return (tree: Root, file: VFile) => {
     const textOnPage = toString(tree)
     const readingTime = getReadingTime(textOnPage)
 
