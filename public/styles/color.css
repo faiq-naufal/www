@@ -1,4 +1,15 @@
 :root {
+  --neutral-light-900: hsl(0deg, 0%, 97%);
+  --neutral-light-800: hsl(0deg, 0%, 91%);
+  --neutral-light-700: hsl(0deg, 0%, 84%);
+  --neutral-light-600: hsl(0deg, 0%, 76%);
+  --neutral-light-500: hsl(0deg, 0%, 67%);
+  --neutral-light-400: hsl(0deg, 0%, 57%);
+  --neutral-light-300: hsl(0deg, 0%, 44%);
+  --neutral-light-200: hsl(0deg, 0%, 34%);
+  --neutral-light-100: hsl(0deg, 0%, 21%);
+  --neutral-light-50: hsl(0deg, 0%, 7%);
+
   --neutral-dark-900: hsl(0deg, 0%, 7%);
   --neutral-dark-800: hsl(0deg, 0%, 13%);
   --neutral-dark-700: hsl(0deg, 0%, 20%);
@@ -9,17 +20,6 @@
   --neutral-dark-200: hsl(0deg, 0%, 70%);
   --neutral-dark-100: hsl(0deg, 0%, 83%);
   --neutral-dark-50: hsl(0deg, 0%, 97%);
-
-  --neutral-light-900: hsl(0deg, 0%, 98%);
-  --neutral-light-800: hsl(0deg, 0%, 92%);
-  --neutral-light-700: hsl(0deg, 0%, 85%);
-  --neutral-light-600: hsl(0deg, 0%, 77%);
-  --neutral-light-500: hsl(0deg, 0%, 68%);
-  --neutral-light-400: hsl(0deg, 0%, 58%);
-  --neutral-light-300: hsl(0deg, 0%, 45%);
-  --neutral-light-200: hsl(0deg, 0%, 35%);
-  --neutral-light-100: hsl(0deg, 0%, 22%);
-  --neutral-light-50: hsl(0deg, 0%, 8%);
 }
 
 :root {
