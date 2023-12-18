@@ -11,7 +11,7 @@
   --neutral-dark-50: hsl(0deg, 0%, 97%);
 
   --neutral-light-900: hsl(0deg, 0%, 98%);
-  --neutral-light-800: hsl(0deg, 0%, 95%);
+  --neutral-light-800: hsl(0deg, 0%, 92%);
   --neutral-light-700: hsl(0deg, 0%, 85%);
   --neutral-light-600: hsl(0deg, 0%, 77%);
   --neutral-light-500: hsl(0deg, 0%, 68%);
@@ -24,7 +24,7 @@
 
 :root {
   --background-site-body: var(--neutral-light-900);
-  --background-site-rectangle: var(--neutral-light-800);
+  --background-site-rectangle: hsl(0deg, 0%, 95%);
   --color-site-subtle: var(--neutral-light-300);
   --color-site-normal: var(--neutral-light-200);
   --color-site-emphasis: var(--neutral-light-100);
@@ -34,7 +34,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background-site-body: var(--neutral-dark-800);
-    --background-site-rectangle: var(--neutral-dark-700);
+    --background-site-rectangle: hsl(0deg, 0%, 17%);
     --color-site-subtle: var(--neutral-dark-300);
     --color-site-normal: var(--neutral-dark-200);
     --color-site-emphasis: var(--neutral-dark-100);
