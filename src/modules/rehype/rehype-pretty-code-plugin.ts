@@ -3,8 +3,8 @@ import type { Options as RehypePrettyCodeOptions } from 'rehype-pretty-code'
 
 export const rehypePrettyCodeOptions: RehypePrettyCodeOptions = {
   theme: {
-    dark: 'vitesse-dark',
-    light: 'vitesse-light',
+    dark: 'github-dark',
+    light: 'github-light',
   },
   keepBackground: false,
   onVisitLine(node) {

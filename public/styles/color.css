@@ -1,45 +1,43 @@
 :root {
-  --background-site-body: #fcfcfc;
-  --background-site-rectangle: #f5f5f5;
-  --color-site-primary: #007685;
-  --color-site-subtle: #747474;
-  --color-site-normal: #4a4a4a;
-  --color-site-emphasis: #303030;
-  --color-site-stress: #222;
+  --neutral-dark-900: hsl(0deg, 0%, 7%);
+  --neutral-dark-800: hsl(0deg, 0%, 13%);
+  --neutral-dark-700: hsl(0deg, 0%, 20%);
+  --neutral-dark-600: hsl(0deg, 0%, 28%);
+  --neutral-dark-500: hsl(0deg, 0%, 37%);
+  --neutral-dark-400: hsl(0deg, 0%, 47%);
+  --neutral-dark-300: hsl(0deg, 0%, 58%);
+  --neutral-dark-200: hsl(0deg, 0%, 70%);
+  --neutral-dark-100: hsl(0deg, 0%, 83%);
+  --neutral-dark-50: hsl(0deg, 0%, 97%);
+
+  --neutral-light-900: hsl(0deg, 0%, 98%);
+  --neutral-light-800: hsl(0deg, 0%, 92%);
+  --neutral-light-700: hsl(0deg, 0%, 85%);
+  --neutral-light-600: hsl(0deg, 0%, 77%);
+  --neutral-light-500: hsl(0deg, 0%, 68%);
+  --neutral-light-400: hsl(0deg, 0%, 58%);
+  --neutral-light-300: hsl(0deg, 0%, 45%);
+  --neutral-light-200: hsl(0deg, 0%, 35%);
+  --neutral-light-100: hsl(0deg, 0%, 22%);
+  --neutral-light-50: hsl(0deg, 0%, 8%);
 }
 
-@supports (color: oklch(0 0 0)) {
-  :root {
-    --background-site-body: oklch(0.99 0 0);
-    --background-site-rectangle: oklch(0.97 0 0);
-    --color-site-primary: oklch(0.52 0.19 210);
-    --color-site-subtle: oklch(0.56 0 0);
-    --color-site-normal: oklch(0.41 0 0);
-    --color-site-emphasis: oklch(0.31 0 0);
-    --color-site-stress: oklch(0.25 0 0);
-  }
+:root {
+  --background-site-body: var(--neutral-light-900);
+  --background-site-rectangle: hsl(0deg, 0%, 95%);
+  --color-site-subtle: var(--neutral-light-300);
+  --color-site-normal: var(--neutral-light-200);
+  --color-site-emphasis: var(--neutral-light-100);
+  --color-site-stress: var(--neutral-light-50);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-site-body: #1f1f1f;
-    --background-site-rectangle: #292929;
-    --color-site-primary: #00d5ef;
-    --color-site-subtle: #898989;
-    --color-site-normal: #bebebe;
-    --color-site-emphasis: #e1e1e1;
-    --color-site-stress: #f8f8f8;
-  }
-
-  @supports (color: oklch(0 0 0)) {
-    :root {
-      --background-site-body: oklch(0.24 0 0);
-      --background-site-rectangle: oklch(0.28 0 0);
-      --color-site-primary: oklch(0.8 0.14 210);
-      --color-site-subtle: oklch(0.63 0 0);
-      --color-site-normal: oklch(0.8 0 0);
-      --color-site-emphasis: oklch(0.91 0 0);
-      --color-site-stress: oklch(0.98 0 0);
-    }
+    --background-site-body: var(--neutral-dark-800);
+    --background-site-rectangle: hsl(0deg, 0%, 17%);
+    --color-site-subtle: var(--neutral-dark-300);
+    --color-site-normal: var(--neutral-dark-200);
+    --color-site-emphasis: var(--neutral-dark-100);
+    --color-site-stress: var(--neutral-dark-50);
   }
 }
