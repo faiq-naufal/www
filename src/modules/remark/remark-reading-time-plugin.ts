@@ -1,10 +1,8 @@
-import type { Root } from 'mdast'
-import type { VFile } from 'vfile'
 import getReadingTime from 'reading-time'
 import { toString } from 'mdast-util-to-string'
 
 export const remarkReadingTime = () => {
-  return (tree: Root, file: VFile) => {
+  return (tree: any, file: any) => {
     const textOnPage = toString(tree)
     const readingTime = getReadingTime(textOnPage)
 
