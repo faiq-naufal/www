@@ -1,23 +1,22 @@
 ---
 export interface Props {
-	url?: string
-	doNotTrack?: boolean
-	noCookieMode?: boolean
-	partytown?: boolean
+  url?: string
+  doNotTrack?: boolean
+  noCookieMode?: boolean
+  partytown?: boolean
 }
 
 const {
-	doNotTrack = true,
-	noCookieMode = false,
-	url = 'https://cdn.splitbee.io/sb.js',
-	partytown = true,
+  doNotTrack = true,
+  noCookieMode = false,
+  url = 'https://cdn.splitbee.io/sb.js',
+  partytown = true,
 } = Astro.props
 ---
 
 <script
-	async={!partytown}
-	type={partytown ? 'text/partytown' : 'text/javascript'}
-	src={url}
-	data-respect-dnt={doNotTrack}
-	data-no-cookie={noCookieMode}
-></script>
+  async={!partytown}
+  type={partytown ? 'text/partytown' : 'text/javascript'}
+  src={url}
+  data-respect-dnt={doNotTrack}
+  data-no-cookie={noCookieMode}></script>
