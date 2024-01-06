@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "start": "npm run build && npm run preview",
+    "start": "bun run --bun build && bun run --bun preview",
     "astro": "astro",
     "check:prettier": "prettier . --check",
     "check:lint": "eslint .",
