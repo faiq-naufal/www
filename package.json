@@ -24,7 +24,6 @@
     "@astrojs/tailwind": "^5.1.0",
     "@iconify/json": "^2.2.165",
     "@total-typescript/ts-reset": "^0.5.1",
-    "@types/bun": "^1.0.0",
     "@types/eslint": "^8.56.1",
     "@typescript-eslint/eslint-plugin": "^6.17.0",
     "@typescript-eslint/parser": "^6.17.0",
