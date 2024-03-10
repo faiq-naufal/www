@@ -16,6 +16,7 @@ const { PUBLIC_CANONICAL_ORIGIN } = process.env
 export default defineConfig({
   site: PUBLIC_CANONICAL_ORIGIN,
   prefetch: true,
+  compressHTML: true,
   integrations: [
     partytown({}),
     UnoCSS({
@@ -31,6 +32,6 @@ export default defineConfig({
       rehypePlugins: [rehypePrettyCodePlugin],
     }),
     sitemap(),
-    critters(),
+    critters({}),
   ],
 })
