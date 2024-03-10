@@ -35,7 +35,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
   href="/fonts/public-sans/public-sans-latin-wght-normal.woff2"
   as="font"
   type="font/woff2"
-  crossorigin
+  crossorigin="anonymous"
   transition:persist
 />
 <link rel="preload" href="/styles/font.css" as="style" transition:persist />
