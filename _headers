@@ -2,6 +2,8 @@
   Cache-Control: public, max-age=31536000
 /_astro/*
   Cache-Control: public, max-age=31536000
+//instant.page/5.2.0
+  Cache-Control: public, max-age=31536000
 
 /*
   Link: </fonts/public-sans/public-sans-latin-wght-normal.woff2>; rel=preload; as=font; type=font/woff2
