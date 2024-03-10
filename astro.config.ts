@@ -8,14 +8,15 @@ import partytown from '@astrojs/partytown'
 import mdx from '@astrojs/mdx'
 import { remarkReadingTime } from './src/modules/remark/remark-reading-time-plugin'
 import { rehypePrettyCodePlugin } from './src/modules/rehype/rehype-pretty-code-plugin'
+import critters from 'astro-critters'
 
 dotenv.config()
-
 const { PUBLIC_CANONICAL_ORIGIN } = process.env
 
 export default defineConfig({
   site: PUBLIC_CANONICAL_ORIGIN,
   prefetch: true,
+  compressHTML: true,
   integrations: [
     partytown({}),
     UnoCSS({
@@ -31,5 +32,6 @@ export default defineConfig({
       rehypePlugins: [rehypePrettyCodePlugin],
     }),
     sitemap(),
+    critters({}),
   ],
 })

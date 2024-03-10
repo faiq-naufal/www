@@ -1,3 +1,8 @@
+/fonts/*
+  Cache-Control: public, max-age=31536000
+/_astro/*
+  Cache-Control: public, max-age=31536000
+
 /*
   Link: </fonts/public-sans/public-sans-latin-wght-normal.woff2>; rel=preload; as=font; type=font/woff2
   Link: </styles/font.css>; rel=preload; as=style
