@@ -1,11 +1,12 @@
 body {
   background-color: var(--background-site-body);
   color: var(--color-site-normal);
+  font-family: 'Fallback Public Sans', 'Arial', 'Roboto', 'Open Sans', 'Ubuntu', 'Cantarell',
+    'sans-serif', 'color-emoji';
 }
 
 .sans-serif-loaded body {
-  font-family: 'Public Sans Variable', '-apple-system', 'BlinkMacSystemFont', 'Helvetica Neue',
-    'Segoe UI', 'Arial', 'Roboto', 'Open Sans', 'Ubuntu', 'Cantarell', 'sans-serif', 'color-emoji';
+  font-family: 'Public Sans Variable', 'Fallback Public Sans';
 }
 
 .monospace-loaded code,
