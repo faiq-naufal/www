@@ -86,18 +86,30 @@ meter {
 }
 
 :root {
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
+  font-family: '-apple-system', 'BlinkMacSystemFont', 'Helvetica Neue', 'Segoe UI', 'Arial',
+    'Roboto', 'Open Sans', 'Ubuntu', 'Cantarell', 'sans-serif', 'color-emoji';
   position: relative;
   min-height: 100%;
   tab-size: 4;
-  -webkit-font-smoothing: antialiased;
+}
+
+:root,
+html,
+body {
+  font-size: 100%;
+  line-height: 1.5;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-variant-ligatures: none;
+  font-variant-ligatures: none;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizespeed;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-smoothing: antialiased;
+  font-smooth: never;
   font-synthesis: none;
-  font-family: '-apple-system', 'BlinkMacSystemFont', 'Helvetica Neue', 'Segoe UI', 'Arial',
-    'Roboto', 'Open Sans', 'Ubuntu', 'Cantarell', 'sans-serif', 'color-emoji';
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
 }
 
 html:focus-within {
@@ -107,8 +119,7 @@ html:focus-within {
 body {
   position: relative;
   min-height: 100vh;
-  font-size: 100%;
-  line-height: 1.5;
+  min-height: 100dvh;
 }
 
 hr {
