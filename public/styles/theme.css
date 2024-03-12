@@ -64,17 +64,17 @@ p a:hover::after {
   box-shadow: inset 0 0 0 16px var(--color-site-stress);
 }
 
-@media (prefers-color-scheme: dark) {
-  pre[data-theme='light'],
-  code[data-theme='light'] {
-    display: none;
-  }
+code[data-theme*=' '],
+code[data-theme*=' '] span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
 }
 
-@media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
-  pre[data-theme='dark'],
-  code[data-theme='dark'] {
-    display: none;
+@media (prefers-color-scheme: dark) {
+  code[data-theme*=' '],
+  code[data-theme*=' '] span {
+    color: var(--shiki-dark);
+    background-color: var(--shiki-dark-bg);
   }
 }
 
