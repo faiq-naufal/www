@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'color-emoji';
-  src: local('Apple Color Emoji'), local('Twemoji Mozilla'), local('Segoe UI Emoji'),
+  src:
+    local('Apple Color Emoji'), local('Twemoji Mozilla'), local('Segoe UI Emoji'),
     local('Segoe UI Symbol'), local('Noto Color Emoji'), local('EmojiOne Color'),
     local('Android Emoji');
 }
@@ -86,8 +87,9 @@ meter {
 }
 
 :root {
-  font-family: '-apple-system', 'BlinkMacSystemFont', 'Helvetica Neue', 'Segoe UI', 'Arial',
-    'Roboto', 'Open Sans', 'Ubuntu', 'Cantarell', 'sans-serif', 'color-emoji';
+  font-family:
+    '-apple-system', 'BlinkMacSystemFont', 'Helvetica Neue', 'Segoe UI', 'Arial', 'Roboto',
+    'Open Sans', 'Ubuntu', 'Cantarell', 'sans-serif', 'color-emoji';
   position: relative;
   min-height: 100%;
   tab-size: 4;
@@ -144,7 +146,8 @@ code,
 kbd,
 samp,
 pre {
-  font-family: 'Menlo', 'Monaco', 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono',
+  font-family:
+    'Menlo', 'Monaco', 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono',
     'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New',
     'monospace', 'color-emoji';
   font-size: 1em;
