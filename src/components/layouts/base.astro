@@ -1,21 +1,21 @@
 ---
-import '@/styles/tailwind.css'
-import '@total-typescript/ts-reset'
-import { ViewTransitions } from 'astro:transitions'
-import { metadata } from '@/config'
-import HeadScript from '@/components/layouts/head/script.astro'
-import HeadMeta from '@/components/layouts/head/meta.astro'
-import HeadAnalytics from '@/components/layouts/head/analytics.astro'
+import "@/styles/tailwind.css";
+import "@total-typescript/ts-reset";
+import { ClientRouter } from "astro:transitions";
+import { metadata } from "@/config";
+import HeadScript from "@/components/layouts/head/script.astro";
+import HeadMeta from "@/components/layouts/head/meta.astro";
+import HeadAnalytics from "@/components/layouts/head/analytics.astro";
 
 export interface Props {
   meta?: {
-    title?: string
-    description?: string
-  }
+    title?: string;
+    description?: string;
+  };
 }
 
-const props = Astro.props as Props
-const meta = props.meta || {}
+const props = Astro.props as Props;
+const meta = props.meta || {};
 ---
 
 <!doctype html>
@@ -24,7 +24,7 @@ const meta = props.meta || {}
     <HeadMeta meta={meta} />
     <HeadScript />
     <HeadAnalytics />
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body>
     <slot />
