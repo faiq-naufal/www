@@ -1,4 +1,4 @@
-const { PUBLIC_CANONICAL_ORIGIN, PUBLIC_EMAIL_ADDRESS } = process.env
+const { PUBLIC_CANONICAL_ORIGIN, PUBLIC_EMAIL_ADDRESS } = process.env;
 
 export const social = {
   email: {
@@ -21,12 +21,12 @@ export const social = {
     username: 'faiqnaufal',
     url: 'https://www.producthunt.com/@faiqnaufal',
   },
-}
+};
 
 export const site = {
   canonical: PUBLIC_CANONICAL_ORIGIN,
   repository: `${social.github.url}/www`,
-}
+};
 
 export const metadata = {
   author: 'Faiq Naufal',
@@ -35,4 +35,4 @@ export const metadata = {
   lang: 'en',
   dir: 'ltr',
   ogLocale: 'en_US',
-}
+};

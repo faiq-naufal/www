@@ -1,14 +1,14 @@
 ---
-import type { InferGetStaticPropsType } from 'astro'
-import { getCollection } from 'astro:content'
-import DefaultLayout from '@/components/layouts/default.astro'
-import Footer from '@/components/layouts/footer/footer.astro'
+import type { InferGetStaticPropsType } from 'astro';
+import { getCollection } from 'astro:content';
+import DefaultLayout from '@/components/layouts/default.astro';
+import Footer from '@/components/layouts/footer/footer.astro';
 
 export async function getStaticPaths() {
   const writingCollection = await getCollection(
     'writing',
-    ({ data }) => !data.draft && data.date < new Date()
-  )
+    ({ data }) => !data.draft && data.date < new Date(),
+  );
 
   return writingCollection.map((writing) => ({
     params: {
@@ -17,39 +17,39 @@ export async function getStaticPaths() {
     props: {
       post: writing,
     },
-  }))
+  }));
 }
 
-type Props = InferGetStaticPropsType<typeof getStaticPaths>
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-const { post } = Astro.props
-const { data } = post || {}
-const { remarkPluginFrontmatter, Content } = await post.render()
-const { minutesRead } = remarkPluginFrontmatter || {}
-const { title, description, date } = data
+const { post } = Astro.props;
+const { data } = post || {};
+const { remarkPluginFrontmatter, Content } = await post.render();
+const { minutesRead } = remarkPluginFrontmatter || {};
+const { title, description, date } = data;
 
-const [minute, timeUnit] = typeof minutesRead.text === 'string' ? minutesRead.text.split(' ') : []
+const [minute, timeUnit] = typeof minutesRead.text === 'string' ? minutesRead.text.split(' ') : [];
 
 const DDMMYYYY = date.toLocaleDateString('en-GB', {
   timeZone: 'Asia/Jakarta',
-})
+});
 
 const humanDate = date.toLocaleDateString('en-US', {
   timeZone: 'Asia/Jakarta',
   year: 'numeric',
   month: 'short',
   day: '2-digit',
-})
+});
 ---
 
 <DefaultLayout meta={{ title, description }}>
-  <div class="py-12 md:py-24 px-6">
+  <div class="px-6 py-12 md:py-24">
     <main class="mx-auto max-w-2xl">
       <article>
         <div class="mb-16 flex flex-col gap-2">
-          <h1 class="text-color-site-stress text-base md:text-lg">{title}</h1>
+          <h1 class="text-base text-color-site-stress md:text-lg">{title}</h1>
           <div
-            class="flex items-center gap-6 md:gap-8 text-xs md:text-sm leading-4 text-color-site-subtle"
+            class="flex items-center gap-6 text-xs leading-4 text-color-site-subtle md:gap-8 md:text-sm"
           >
             <time datetime={DDMMYYYY}>
               {humanDate}
