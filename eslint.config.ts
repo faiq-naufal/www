@@ -31,7 +31,7 @@ export default tseslint.config(
       'tailwindcss/no-custom-classname': ['off'],
     },
     ignores: [
-      '/*', // Ignore everything except the following
+      '*', // Ignore everything except the following
       '!public/',
       '!src/',
       '!tsconfig.json',
