@@ -12,6 +12,7 @@
     "check:prettier": "prettier . --check",
     "check:lint": "eslint .",
     "check:type": "tsc",
+    "format:lint": "eslint --fix",
     "format:prettier": "prettier --write ."
   },
   "browserslist": [
