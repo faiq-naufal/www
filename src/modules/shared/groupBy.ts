@@ -1,6 +1,6 @@
 const groupBy = <T extends Record<string, any>, K extends keyof T>(
   array: T[],
-  key: K | { (obj: T): string }
+  key: K | ((obj: T) => string)
 ): Record<string, T[]> => {
   const keyFn = key instanceof Function ? key : (obj: T) => obj[key]
   return array.reduce(

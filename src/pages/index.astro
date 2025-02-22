@@ -1,31 +1,31 @@
 ---
-import { getCollection } from 'astro:content'
-import DefaultLayout from '@/components/layouts/default.astro'
-import Footer from '@/components/layouts/footer/footer.astro'
-import ButtonLink from '@/components/shared/button/link.astro'
-import Logo from '@/components/shared/logo/logo.astro'
-import { social } from '@/config'
+import { getCollection } from 'astro:content';
+import DefaultLayout from '@/components/layouts/default.astro';
+import Footer from '@/components/layouts/footer/footer.astro';
+import ButtonLink from '@/components/shared/button/link.astro';
+import Logo from '@/components/shared/logo/logo.astro';
+import { social } from '@/config';
 
 const writingCollection = await getCollection(
   'writing',
-  ({ data }) => !data.draft && data.date < new Date()
-)
+  ({ data }) => !data.draft && data.date < new Date(),
+);
 
 const sortedWriting = writingCollection.sort((contentA, contentB) => {
-  const oneSecond = 1000
+  const oneSecond = 1000;
   return (
     Math.floor(new Date(contentB.data.date).getTime() / oneSecond) -
     Math.floor(new Date(contentA.data.date).getTime() / oneSecond)
-  )
-})
+  );
+});
 
-const numberOfLatestWriting = Infinity
+const numberOfLatestWriting = Infinity;
 
-const latestWriting = sortedWriting.slice(0, numberOfLatestWriting)
+const latestWriting = sortedWriting.slice(0, numberOfLatestWriting);
 ---
 
 <DefaultLayout>
-  <div class="py-12 md:py-24 px-6">
+  <div class="px-6 py-12 md:py-24">
     <main class="mx-auto max-w-2xl">
       <article class="flex flex-col gap-y-16">
         <section>
@@ -35,14 +35,14 @@ const latestWriting = sortedWriting.slice(0, numberOfLatestWriting)
             </div>
             <div>
               <h1 class="text-color-site-stress">Faiq Naufal</h1>
-              <p class="text-color-site-subtle text-sm md:text-base">Software Engineer Front End</p>
+              <p class="text-sm text-color-site-subtle md:text-base">Software Engineer Front End</p>
             </div>
           </div>
         </section>
 
-        <section class="flex flex-col gap-y-4 leading-6 md:leading-7 text-sm md:text-base">
+        <section class="flex flex-col gap-y-4 text-sm leading-6 md:text-base md:leading-7">
           <h2
-            class="uppercase font-semibold text-xs md:text-sm text-color-site-stress tracking-wide"
+            class="text-xs font-semibold uppercase tracking-wide text-color-site-stress md:text-sm"
           >
             Me in 10 seconds
           </h2>
@@ -59,6 +59,7 @@ const latestWriting = sortedWriting.slice(0, numberOfLatestWriting)
               rel="noopener noreferrer">inLive</a
             > to help users and developers on building their own affordable live streaming platform.
           </p>
+
           <p>
             I really passionate and obsessed in building stuff on the internet. I also love solving
             problem and creating meaningful digital experience using web technologies.
@@ -66,7 +67,7 @@ const latestWriting = sortedWriting.slice(0, numberOfLatestWriting)
           <div>
             <ButtonLink
               href="/about"
-              className="inline-block py-1.5 md:py-2 px-4 text-center text-color-site-emphasis hover:text-color-site-stress font-medium tracking-wide bg-background-site-rectangle rounded-lg text-sm border-[0.25px] border-background-site-rectangle hover:border-color-site-subtle transition-all"
+              className="inline-block rounded-lg border-[0.25px] border-background-site-rectangle bg-background-site-rectangle px-4 py-1.5 text-center text-sm font-medium tracking-wide text-color-site-emphasis transition-all hover:border-color-site-subtle hover:text-color-site-stress md:py-2"
             >
               <div slot="children" class="flex items-center gap-1">
                 <span>Tell me more</span>
@@ -79,46 +80,46 @@ const latestWriting = sortedWriting.slice(0, numberOfLatestWriting)
         {
           latestWriting.length && (
             <section class="flex flex-col gap-y-4 text-color-site-normal">
-              <h2 class="uppercase font-semibold text-xs md:text-sm text-color-site-stress tracking-wide">
+              <h2 class="text-xs font-semibold uppercase tracking-wide text-color-site-stress md:text-sm">
                 Writing
               </h2>
-              <ul class="flex flex-col group/inactive -mt-2.5">
+              <ul class="group/inactive -mt-2.5 flex flex-col">
                 {latestWriting.map(async (writing) => {
-                  const { data, slug, render } = writing
-                  const { remarkPluginFrontmatter } = await render()
-                  const { minutesRead } = remarkPluginFrontmatter || {}
-                  const { date, title } = data
+                  const { data, slug, render } = writing;
+                  const { remarkPluginFrontmatter } = await render();
+                  const { minutesRead } = remarkPluginFrontmatter || {};
+                  const { date, title } = data;
 
-                  const [minute, timeUnit] = minutesRead?.text ? minutesRead.text.split(' ') : []
+                  const [minute, timeUnit] = minutesRead?.text ? minutesRead.text.split(' ') : [];
 
                   const DDMMYYYY = date.toLocaleDateString('en-GB', {
                     timeZone: 'Asia/Jakarta',
-                  })
+                  });
 
                   const humanDate = date.toLocaleDateString('en-US', {
                     timeZone: 'Asia/Jakarta',
                     month: 'short',
                     day: '2-digit',
-                  })
+                  });
 
                   return (
                     <li class="group/active">
                       <a
                         href={`/writing/${slug}`}
-                        class="py-2.5 flex flex-col md:flex-row md:justify-between gap-0.5 md:gap-3"
+                        class="flex flex-col gap-0.5 py-2.5 md:flex-row md:justify-between md:gap-3"
                       >
-                        <div class="flex flex-row justify-between items-center gap-3 md:gap-10">
-                          <p class="md:order-2 text-sm md:text-base flex-1 text-color-site-normal group-hover/inactive:opacity-40 group-hover/active:!opacity-100 group-hover/active:text-color-site-stress transition-opacity duration-150">
+                        <div class="flex flex-row items-center justify-between gap-3 md:gap-10">
+                          <p class="flex-1 text-sm text-color-site-normal transition-opacity duration-150 group-hover/active:text-color-site-stress group-hover/active:!opacity-100 group-hover/inactive:opacity-40 md:order-2 md:text-base">
                             {title}
                           </p>
                           <time
                             datetime={DDMMYYYY}
-                            class="md:order-1 text-xs md:text-sm leading-5 md:leading-6 w-14 group-hover/inactive:opacity-40 group-hover/active:!opacity-100 group-hover/active:text-color-site-stress transition-opacity duration-150"
+                            class="w-14 text-xs leading-5 transition-opacity duration-150 group-hover/active:text-color-site-stress group-hover/active:!opacity-100 group-hover/inactive:opacity-40 md:order-1 md:text-sm md:leading-6"
                           >
                             {humanDate}
                           </time>
                         </div>
-                        <div class="text-xs md:text-sm leading-5 md:leading-6 group-hover/inactive:opacity-40 group-hover/active:!opacity-100 group-hover/active:text-color-site-stress transition-opacity duration-150">
+                        <div class="text-xs leading-5 transition-opacity duration-150 group-hover/active:text-color-site-stress group-hover/active:!opacity-100 group-hover/inactive:opacity-40 md:text-sm md:leading-6">
                           <time datetime={`PT${minute}${timeUnit[0].toUpperCase()}`}>
                             {minute}&nbsp;{timeUnit}
                           </time>
@@ -126,7 +127,7 @@ const latestWriting = sortedWriting.slice(0, numberOfLatestWriting)
                         </div>
                       </a>
                     </li>
-                  )
+                  );
                 })}
               </ul>
             </section>
@@ -135,20 +136,20 @@ const latestWriting = sortedWriting.slice(0, numberOfLatestWriting)
 
         <section class="flex flex-col gap-y-4 text-color-site-normal">
           <h2
-            class="uppercase font-semibold text-xs md:text-sm text-color-site-stress tracking-wide"
+            class="text-xs font-semibold uppercase tracking-wide text-color-site-stress md:text-sm"
           >
             Connect
           </h2>
-          <ul class="grid grid-cols-1 sm:grid-cols-2 -ml-3 md:-ml-4 md:gap-1 -mt-2">
+          <ul class="-ml-3 -mt-2 grid grid-cols-1 sm:grid-cols-2 md:-ml-4 md:gap-1">
             <li>
               <ButtonLink
                 href={social.linkedin.url}
-                className="block p-3 md:p-4 group hover:bg-background-site-rectangle rounded-md transition"
+                className="group block rounded-md p-3 transition hover:bg-background-site-rectangle md:p-4"
                 external={true}
               >
                 <div slot="children" class="flex items-center justify-between text-sm md:text-base">
                   <div>
-                    <div class="text-color-site-subtle text-xs md:text-sm">
+                    <div class="text-xs text-color-site-subtle md:text-sm">
                       {social.linkedin.label} &mdash;
                     </div>
                     <div class="text-color-site-normal group-hover:text-color-site-stress">
@@ -156,7 +157,7 @@ const latestWriting = sortedWriting.slice(0, numberOfLatestWriting)
                     </div>
                   </div>
                   <div
-                    class="flex items-center opacity-0 group-hover:opacity-100 i-carbon:arrow-up-right transition text-color-site-stress"
+                    class="i-carbon:arrow-up-right flex items-center text-color-site-stress opacity-0 transition group-hover:opacity-100"
                   >
                   </div>
                 </div>
@@ -165,12 +166,12 @@ const latestWriting = sortedWriting.slice(0, numberOfLatestWriting)
             <li>
               <ButtonLink
                 href={social.github.url}
-                className="block p-3 md:p-4 group hover:bg-background-site-rectangle rounded-md transition"
+                className="group block rounded-md p-3 transition hover:bg-background-site-rectangle md:p-4"
                 external={true}
               >
                 <div slot="children" class="flex items-center justify-between text-sm md:text-base">
                   <div>
-                    <div class="text-color-site-subtle text-xs md:text-sm">
+                    <div class="text-xs text-color-site-subtle md:text-sm">
                       {social.github.label} &mdash;
                     </div>
                     <div class="text-color-site-normal group-hover:text-color-site-stress">
@@ -178,7 +179,7 @@ const latestWriting = sortedWriting.slice(0, numberOfLatestWriting)
                     </div>
                   </div>
                   <div
-                    class="flex items-center opacity-0 group-hover:opacity-100 i-carbon:arrow-up-right transition text-color-site-stress"
+                    class="i-carbon:arrow-up-right flex items-center text-color-site-stress opacity-0 transition group-hover:opacity-100"
                   >
                   </div>
                 </div>
@@ -187,12 +188,12 @@ const latestWriting = sortedWriting.slice(0, numberOfLatestWriting)
             <li>
               <ButtonLink
                 href={`mailto:${social.email.url}`}
-                className="block p-3 md:p-4 group hover:bg-background-site-rectangle rounded-md transition"
+                className="group block rounded-md p-3 transition hover:bg-background-site-rectangle md:p-4"
                 external={true}
               >
                 <div slot="children" class="flex items-center justify-between text-sm md:text-base">
                   <div>
-                    <div class="text-color-site-subtle text-xs md:text-sm">
+                    <div class="text-xs text-color-site-subtle md:text-sm">
                       {social.email.label} &mdash;
                     </div>
                     <div class="text-color-site-normal group-hover:text-color-site-stress">
@@ -200,7 +201,7 @@ const latestWriting = sortedWriting.slice(0, numberOfLatestWriting)
                     </div>
                   </div>
                   <div
-                    class="flex items-center opacity-0 group-hover:opacity-100 i-carbon:arrow-up-right transition text-color-site-stress"
+                    class="i-carbon:arrow-up-right flex items-center text-color-site-stress opacity-0 transition group-hover:opacity-100"
                   >
                   </div>
                 </div>
@@ -209,12 +210,12 @@ const latestWriting = sortedWriting.slice(0, numberOfLatestWriting)
             <li>
               <ButtonLink
                 href={social.producthunt.url}
-                className="block p-3 md:p-4 group hover:bg-background-site-rectangle rounded-md transition"
+                className="group block rounded-md p-3 transition hover:bg-background-site-rectangle md:p-4"
                 external={true}
               >
                 <div slot="children" class="flex items-center justify-between text-sm md:text-base">
                   <div>
-                    <div class="text-color-site-subtle text-xs md:text-sm">
+                    <div class="text-xs text-color-site-subtle md:text-sm">
                       {social.producthunt.label} &mdash;
                     </div>
                     <div class="text-color-site-normal group-hover:text-color-site-stress">
@@ -222,7 +223,7 @@ const latestWriting = sortedWriting.slice(0, numberOfLatestWriting)
                     </div>
                   </div>
                   <div
-                    class="flex items-center opacity-0 group-hover:opacity-100 i-carbon:arrow-up-right transition text-color-site-stress"
+                    class="i-carbon:arrow-up-right flex items-center text-color-site-stress opacity-0 transition group-hover:opacity-100"
                   >
                   </div>
                 </div>

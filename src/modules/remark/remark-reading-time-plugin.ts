@@ -1,12 +1,13 @@
 import getReadingTime from 'reading-time'
 import { toString } from 'mdast-util-to-string'
+import type { RemarkPlugin } from "@astrojs/markdown-remark"
 
-export const remarkReadingTime = () => {
-  return (tree: any, file: any) => {
+export const remarkReadingTime: RemarkPlugin = () => {
+  return (tree, { data }) => {
     const textOnPage = toString(tree)
     const readingTime = getReadingTime(textOnPage)
 
-    const frontmatter: Record<string, any> = (file.data.astro as any).frontmatter
-    frontmatter.minutesRead = readingTime
+    const frontmatter = data.astro!.frontmatter
+    frontmatter!.minutesRead = readingTime
   }
 }

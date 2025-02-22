@@ -1,0 +1,12 @@
+* text=auto
+*.js eol=lf
+*.json eol=lf
+*.ts eol=lf
+*.tsx eol=lf
+*.md eol=lf
+*.astro eol=lf
+
+ Configs
+.editorconfig     text
+.env              text
+.gitattributes    text
