@@ -1,16 +1,16 @@
 ---
-import ButtonLink from '@/components/shared/button/link.astro'
+import ButtonLink from '@/components/shared/button/link.astro';
 ---
 
 <footer
-  class="mx-auto max-w-2xl mt-16 md:mt-20 flex flex-row flex-wrap justify-between gap-x-20 gap-y-8 text-sm text-color-site-subtle"
+  class="mx-auto mt-16 flex max-w-2xl flex-row flex-wrap justify-between gap-x-20 gap-y-8 text-sm text-color-site-subtle md:mt-20"
 >
   <nav>
-    <ul class="flex flex-wrap flex-row gap-4">
+    <ul class="flex flex-row flex-wrap gap-4">
       <li>
         <ButtonLink
           href="/"
-          className="block hover:underline hover:underline-offset-4 hover:text-color-site-stress transition"
+          className="block transition hover:text-color-site-stress hover:underline hover:underline-offset-4"
         >
           <span slot="children" class="block">Home</span>
         </ButtonLink>
@@ -18,7 +18,7 @@ import ButtonLink from '@/components/shared/button/link.astro'
       <li>
         <ButtonLink
           href="/about"
-          className="block hover:underline hover:underline-offset-4 hover:text-color-site-stress transition"
+          className="block transition hover:text-color-site-stress hover:underline hover:underline-offset-4"
         >
           <span slot="children" class="block">About me</span>
         </ButtonLink>
@@ -26,7 +26,7 @@ import ButtonLink from '@/components/shared/button/link.astro'
       <li>
         <ButtonLink
           href="/sitemap-index.xml"
-          className="block hover:underline hover:underline-offset-4 hover:text-color-site-stress transition"
+          className="block transition hover:text-color-site-stress hover:underline hover:underline-offset-4"
         >
           <span slot="children" class="block">Sitemap</span>
         </ButtonLink>
@@ -34,7 +34,7 @@ import ButtonLink from '@/components/shared/button/link.astro'
       <li>
         <ButtonLink
           href="https://uptime.faiqnaufal.com"
-          className="block hover:underline hover:underline-offset-4 hover:text-color-site-stress transition"
+          className="block transition hover:text-color-site-stress hover:underline hover:underline-offset-4"
           external
         >
           <span slot="children" class="block">Uptime</span>

@@ -1,13 +1,13 @@
 ---
 export interface Props {
-  href: string
-  className?: string
-  title?: string
-  ariaLabel?: string
-  ariaCurrent?: 'page' | 'step' | 'location' | 'date' | 'time' | boolean
-  disabled?: boolean
-  external?: boolean
-  noText?: boolean
+  href: string;
+  className?: string;
+  title?: string;
+  ariaLabel?: string;
+  ariaCurrent?: 'page' | 'step' | 'location' | 'date' | 'time' | boolean;
+  disabled?: boolean;
+  external?: boolean;
+  noText?: boolean;
 }
 
 const {
@@ -19,7 +19,7 @@ const {
   disabled = false,
   external = false,
   noText = false,
-} = Astro.props
+} = Astro.props;
 ---
 
 <a

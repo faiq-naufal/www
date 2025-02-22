@@ -3,9 +3,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
+      "@/*": ["./src/*"]
     },
-    "verbatimModuleSyntax": true,
+    "verbatimModuleSyntax": true
   },
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["node_modules", "**/node_modules/*", ".vscode", "dist"]

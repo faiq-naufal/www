@@ -1,6 +1,6 @@
 ---
-title: "Uptime and SSL monitoring for this website"
-description: "I need a service monitoring tool which monitors this website periodically and give update and notification in case of something wrong with the website."
+title: 'Uptime and SSL monitoring for this website'
+description: 'I need a service monitoring tool which monitors this website periodically and give update and notification in case of something wrong with the website.'
 draft: false
 date: 2023-07-01
 tags:
@@ -24,17 +24,17 @@ After I looked for some services, I found that [Pulsetic](https://pulsetic.com/)
 
 I need to register a Pulsetic account. You can access through [this link](https://app.pulsetic.com/signup). After that, I need to add and register the address of this website to the monitor list. That’s it, the website is successfully monitored with these simple steps.
 
-![Image of registering a website address to Pulsetic](./onboarding-page.png "Image of registering a website address to Pulsetic")
+![Image of registering a website address to Pulsetic](./onboarding-page.png 'Image of registering a website address to Pulsetic')
 
 ## Uptime and ssl monitoring
 
 After the website address is added to the monitoring list, Pulsetic will monitor the uptime and ssl certificate status for the website. With free plan, this website will be monitored with 5 minutes interval. I tried to make the website down for several minutes to check if the monitoring actually worked properly.
 
-![Image of monitoring list page](./monitor-list-page.png "Image of monitoring list page")
+![Image of monitoring list page](./monitor-list-page.png 'Image of monitoring list page')
 
 I can see detailed monitoring data through overview page section. This website is monitored from 3 regions periodically and the result is displayed as aggregate data.
 
-![Image of monitoring overview page](./monitor-overview-page.png "Image of monitoring overview page")
+![Image of monitoring overview page](./monitor-overview-page.png 'Image of monitoring overview page')
 
 ## Basic alert
 
@@ -44,13 +44,13 @@ There are many available options for alert and notification in case of something
 
 Basic monitoring alert through the email account is configured automatically when the website address is added to the monitoring list. I can however change or add up to 5 email addresses if I want to notify other addresses.
 
-![Image of configuring basic alert through email](./email-alert.png "Image of configuring basic alert through email")
+![Image of configuring basic alert through email](./email-alert.png 'Image of configuring basic alert through email')
 
 ### Basic alert through telegram
 
 Besides email, I also configure monitoring alert through telegram. With telegram, you can choose whether you want the telegram bot to send the alert through your telegram group or your private chat.
 
-![Image of configuring alert through telegram](./telegram-alert.png "Image of configuring alert through telegram")
+![Image of configuring alert through telegram](./telegram-alert.png 'Image of configuring alert through telegram')
 
 ## Status monitoring page for public use
 
@@ -58,7 +58,7 @@ The status monitoring page can be used by the visitors and me to see this websit
 
 After the status page is created, there will be a public link for the status page. I can share the public link with everyone. If I visit my status page, the UI will be like this.
 
-![Image of monitoring status page](./status-page.png "Image of monitoring status page")
+![Image of monitoring status page](./status-page.png 'Image of monitoring status page')
 
 ## Custom domain for status monitoring page
 
@@ -68,7 +68,7 @@ I want people to access this website status page with my own domain. The status 
 
 In the status page general settings, there is a custom domain name field. We need to input the domain address on this field. After the update is saved, we’re done configuring the Pulsetic part.
 
-![Image of custom domain name field](./custom-domain-name-pulsetic.png "Image of custom domain name field")
+![Image of custom domain name field](./custom-domain-name-pulsetic.png 'Image of custom domain name field')
 
 ### Add the address to the Cloudflare DNS management
 
@@ -81,6 +81,6 @@ In Cloudflare, DNS records menu can be found after selected one of the registere
 - The target must point to **app.pulsetic.com**
 - Traffic proxy should be enabled. This is Cloudflare specific and may differs in other services.
 
-![Image of adding a new DNS record in the Cloudflare](./dns-record.png "Image of DNS record in the Cloudflare")
+![Image of adding a new DNS record in the Cloudflare](./dns-record.png 'Image of DNS record in the Cloudflare')
 
 After the custom domain DNS record is configured. We can check if the configuration works properly by visiting the [uptime.faiqnaufal.com](https://uptime.faiqnaufal.com) custom domain. If everything goes well, the custom domain should be able to display the status page monitoring from Pulsetic.

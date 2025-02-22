@@ -1,7 +1,7 @@
 {
   "name": "Faiq Naufal",
-	"short_name": "Faiq_Naufal",
-	"description": "The online space of Faiq Naufal",
+  "short_name": "Faiq_Naufal",
+  "description": "The online space of Faiq Naufal",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait-primary",

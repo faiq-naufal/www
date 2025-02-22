@@ -1,6 +1,6 @@
 ---
-title: "Clean and reset the git commit history"
-description: "Sometimes you need to reset your git log history. These methods making your branch has a fresh and clean git history state without the previous history log"
+title: 'Clean and reset the git commit history'
+description: 'Sometimes you need to reset your git log history. These methods making your branch has a fresh and clean git history state without the previous history log'
 draft: false
 date: 2023-03-03
 tags:
@@ -16,69 +16,79 @@ You have an existing repository for your project which already has many commit h
 1. Ensure you are in the latest updated branch in the repository. Let's assume the branch is the `main` branch.
 2. Create and move to a new orphan branch. This branch will be used as a replacement for the main branch later.
 
-    ```bash
-    git checkout --orphan new-branch
-    ```
+   ```bash
+   git checkout --orphan new-branch
+   ```
 
    Orphan branch is a branch with no parent commit history. That means, if you type `git log`, then git will tell you if the `new-branch` you just created does not have any commits yet.
+
 3. You need to add all files in our project to the git again.
 
-    ```bash
-    git add -A
-    ```
+   ```bash
+   git add -A
+   ```
+
 4. Commit your files. This will be your initial commit history in the current branch.
 
-    ```bash
-    git commit -m "Initial commit"
-    ```
+   ```bash
+   git commit -m "Initial commit"
+   ```
+
 5. Delete the old `main` branch.
 
-    ```bash
-    git branch -D main
-    ```
+   ```bash
+   git branch -D main
+   ```
+
 6. Rename the current branch to `main`.
 
-    ```bash
-    git branch -m main
-    ```
+   ```bash
+   git branch -m main
+   ```
+
 7. Finally, force update to the `main` branch in your remote repository. The orphan branch becomes your latest branch.
 
-    ```bash
-    git push -f origin main
-    ```
+   ```bash
+   git push -f origin main
+   ```
 
 ## Second method
 
 1. Same with the first method. Ensure you are in the latest updated branch which I will assume the `main` branch.
 2. The git commit history is stored in the `.git` folder. If you really want to reset your git history data from scratch, you may delete that `.git` folder. You should think carefully before doing this. This action is **irreversible**.
 
-    ```bash
-    rm -rf .git
-    ```
+   ```bash
+   rm -rf .git
+   ```
+
 3. After the `.git` folder is removed. You need to reinitialize the repository. This command will reinitialize the repository with the `init` git command and create an initial branch named `main`.
 
-    ```bash
-    git init -b main
-    ```
+   ```bash
+   git init -b main
+   ```
+
 4. You need to add all files in our project to the git after reinitialization.
 
-    ```bash
-    git add -A
-    ```
+   ```bash
+   git add -A
+   ```
+
 5. Commit your files. This will be your initial commit history.
 
-    ```bash
-    git commit -m "Initial commit"
-    ```
+   ```bash
+   git commit -m "Initial commit"
+   ```
+
 6. Add the remote repository url. This example will use GitHub for the remote repository.
 
-    ```bash
-    git remote add origin https://github.com/{YOUR_USERNAME}/{YOUR_REPOSITORY}.git
-    ```
+   ```bash
+   git remote add origin https://github.com/{YOUR_USERNAME}/{YOUR_REPOSITORY}.git
+   ```
+
 7. Finally, force update to the `main` branch in your remote repository.
 
-    ```bash
-    git push -f origin main
-    ```
+   ```bash
+   git push -f origin main
+   ```
 
 If you want to reset the git history but still keep the git data, the recommended way is by using the first method. However, if you really want to reset and create a fresh git data. You need to follow the second method.

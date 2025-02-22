@@ -1,6 +1,6 @@
 ---
-title: "Splitbee integration with Astro framework and Partytown"
-description: "Splitbee is a simple and lightweight google analytics alternative. Easy Splitbee integration with Astro framework and Partytown library."
+title: 'Splitbee integration with Astro framework and Partytown'
+description: 'Splitbee is a simple and lightweight google analytics alternative. Easy Splitbee integration with Astro framework and Partytown library.'
 draft: false
 date: 2023-05-12
 tags:
@@ -60,9 +60,9 @@ import { defineConfig } from 'astro/config';
 import partytown from '@astrojs/partytown';
 
 export default defineConfig({
-	// ...
-	integrations: [partytown()],
-})
+  // ...
+  integrations: [partytown()],
+});
 ```
 
 Congratulations, you have successfully set up the Partytown and Astro project. We will finally start integrating Splitbee analytics into our website.
@@ -88,12 +88,7 @@ Your dashboard will look like this and is currently still empty. Let’s add the
 To add the Splitbee analytics script, you need to add the following script tag to your astro file in the pages directory. You can disable the Splitbee cookie by adding the data-no-cookie attribute to the script tag. You can also make the analytics respect the do not track setting of the browser by adding the data-respect-dnt attribute to the script tag.
 
 ```html
-<script
-	async
-	src="https://cdn.splitbee.io/sb.js"
-	data-respect-dnt
-	data-no-cookie>
-</script>
+<script async src="https://cdn.splitbee.io/sb.js" data-respect-dnt data-no-cookie></script>
 ```
 
 Alternatively, if you want to use NPM version, you can use the [@splitbee/web](https://splitbee.io/docs/javascript-library) package and install it using the NPM CLI command. In our case, we will stick to using the script tag.
@@ -110,11 +105,11 @@ To relocate the script to the web worker using party town is easy. All you need 
 
 ```html
 <script
-	type="text/partytown"
-	src="https://cdn.splitbee.io/sb.js"
-	data-respect-dnt
-	data-no-cookie>
-</script>
+  type="text/partytown"
+  src="https://cdn.splitbee.io/sb.js"
+  data-respect-dnt
+  data-no-cookie
+></script>
 ```
 
 Until this step, you have successfully finished the Splitbee integration with Astro framework and Partytown. After this, you need to deploy your code and whenever there is a new traffic to your website URL, Splitbee will monitor that traffic and display the data into the Splitbee dashboard.

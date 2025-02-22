@@ -1,4 +1,4 @@
-import { z, defineCollection } from 'astro:content'
+import { z, defineCollection } from 'astro:content';
 
 const writingCollection = defineCollection({
   schema: z.object({
@@ -8,16 +8,16 @@ const writingCollection = defineCollection({
     date: z.date(),
     tags: z.array(z.string()).optional(),
   }),
-})
+});
 
 const writingConfig = {
   postPerPage: 10,
-}
+};
 
 export const collections = {
   writing: writingCollection,
-}
+};
 
 export const config = {
   writing: writingConfig,
-}
+};

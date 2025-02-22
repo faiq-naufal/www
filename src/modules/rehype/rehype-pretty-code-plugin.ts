@@ -1,4 +1,4 @@
-import rehypePrettyCode from 'rehype-pretty-code'
+import rehypePrettyCode from 'rehype-pretty-code';
 
 export const rehypePrettyCodePlugin = () => {
   return rehypePrettyCode({
@@ -7,5 +7,5 @@ export const rehypePrettyCodePlugin = () => {
       light: 'github-light',
     },
     keepBackground: false,
-  })
-}
+  });
+};
