@@ -4,9 +4,7 @@
 # Except these files & folders
 !/public
 !/src
-!/.github
 !tsconfig.json
 !astro.config.ts
-!package.json
-!.prettierrc.js
-!.eslintrc.js
+!eslint.config.ts
+!prettier.config.js
