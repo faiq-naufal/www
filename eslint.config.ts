@@ -2,13 +2,17 @@ import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import globals from 'globals';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
+import eslintPluginAstro from 'eslint-plugin-astro';
+import eslintPluginTailwindCSS from 'eslint-plugin-tailwindcss';
 
 export default tseslint.config(
   eslint.configs.recommended,
-  tseslint.configs.recommendedTypeChecked,
-  tseslint.configs.stylisticTypeChecked,
+  tseslint.configs.recommended,
+  tseslint.configs.stylistic,
+  ...eslintPluginAstro.configs.recommended,
+  ...eslintPluginTailwindCSS.configs['flat/recommended'],
   {
-    files: ['**/*.{js,mjs,ts}',],
+    files: ['**/*.{astro,ts,js,mjs}'],
     languageOptions: {
       parserOptions: {
         projectService: true,
@@ -24,16 +28,17 @@ export default tseslint.config(
       '@typescript-eslint/no-non-null-assertion': ['warn'],
       '@typescript-eslint/no-unsafe-return': ['warn'],
       '@typescript-eslint/no-unsafe-argument': ['warn'],
+      'tailwindcss/no-custom-classname': ['off'],
     },
     ignores: [
-      "/*", // Ignore everything except the following
-      "!public/",
-      "!src/",
-      "!tsconfig.json",
-      "!astro.config.ts",
-      "!eslint.config.ts",
-      "!prettier.config.js",
-  ]
+      '/*', // Ignore everything except the following
+      '!public/',
+      '!src/',
+      '!tsconfig.json',
+      '!astro.config.ts',
+      '!eslint.config.ts',
+      '!prettier.config.js',
+    ],
   },
   eslintPluginPrettierRecommended,
 );
